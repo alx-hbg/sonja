@@ -2,28 +2,12 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Monteurzimmer Werra-Meißner - Komfortable Unterkünfte für Handwerker</title>
     <meta name="description" content="Vollausgestattete Monteurzimmer in der Werra-Meißner Region. Günstig, sauber, zentral gelegen.">
     
     <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: #fefefe;
-        }
+        /* Reset and base styles - Mobile-first approach */
 
         img {
             max-width: 100%;
@@ -36,24 +20,9 @@
             text-decoration: none;
         }
 
-        .container {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
 
-        /* Header */
-        .header {
-            background: white;
-            color: #222;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid #f0f0f0;
-        }
+
+        /* Header - Mobile optimized */
 
         .header-content {
             display: flex;
@@ -181,10 +150,7 @@
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
         }
 
-        /* Section styling */
-        section {
-            padding: 80px 16px;
-        }
+
 
         .section-title {
             text-align: center;
@@ -996,6 +962,430 @@
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Mobile-first responsive design */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fefefe;
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Prevent horizontal overflow */
+        .container {
+            max-width: 100%;
+            width: 100%;
+            padding: 0 16px;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 980px;
+                padding: 0 16px;
+            }
+        }
+
+        /* Ensure all sections respect container width */
+        section {
+            padding: 60px 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        @media (min-width: 768px) {
+            section {
+                padding: 80px 0;
+            }
+        }
+
+        /* Mobile-optimized header */
+        .header {
+            background: white;
+            color: #222;
+            padding: 0.8rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #f0f0f0;
+            overflow-x: hidden;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .header-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #00a699;
+            text-shadow: 0 2px 4px rgba(0, 166, 153, 0.2);
+            flex-shrink: 1;
+            min-width: 0;
+        }
+
+        .header-cta {
+            background: linear-gradient(135deg, #ff6b9d, #ff4d8d);
+            color: white;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+            border: 2px solid #ff4d8d;
+            text-align: center;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .header-title {
+                font-size: 1.5rem;
+            }
+            
+            .header-cta {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Mobile-optimized hero section */
+        .hero {
+            background: linear-gradient(135deg, #00d4aa 0%, #00a699 100%);
+            color: white;
+            padding: 80px 16px 60px;
+            text-align: center;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 100px 16px 80px;
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: white;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.2);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .hero p {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            margin-bottom: 2rem;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            color: white;
+            line-height: 1.5;
+            font-weight: 600;
+            padding: 0 8px;
+        }
+
+        /* Mobile-optimized buttons */
+        .cta-button {
+            background: linear-gradient(135deg, #ff6b9d, #ff4d8d);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+            margin: 0.5rem;
+            font-weight: 700;
+            border: 3px solid #ff4d8d;
+            width: calc(100% - 2rem);
+            max-width: 300px;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 768px) {
+            .cta-button {
+                width: auto;
+                padding: 1.2rem 2.5rem;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Mobile-optimized features grid */
+        .features-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 8px;
+        }
+
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+                padding: 0;
+            }
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.5rem 1rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid #f0f0f0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 768px) {
+            .feature-card {
+                padding: 2.5rem 2rem;
+            }
+        }
+
+        /* Mobile-optimized accommodation section */
+        .accommodation-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: 1fr;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 8px;
+        }
+
+        @media (min-width: 768px) {
+            .accommodation-grid {
+                max-width: 800px;
+                padding: 0;
+                gap: 1.5rem;
+            }
+        }
+
+        .accommodation-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            transition: all 0.3s ease;
+            border: 3px solid #f0f0f0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Mobile-optimized photo carousel */
+        .photo-carousel {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 20px 20px 0 0;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .photo-carousel {
+                height: 400px;
+            }
+        }
+
+        /* Mobile-optimized accommodation content */
+        .accommodation-content {
+            padding: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .accommodation-content {
+                padding: 2rem;
+            }
+        }
+
+        /* Mobile-optimized contact section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 8px;
+        }
+
+        @media (min-width: 768px) {
+            .contact-grid {
+                max-width: 980px;
+                padding: 0;
+                gap: 3rem;
+            }
+        }
+
+        /* Mobile-optimized modal */
+        .modal-content {
+            background-color: white;
+            margin: 1rem auto;
+            padding: 1.5rem;
+            border-radius: 14px;
+            width: 95%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 768px) {
+            .modal-content {
+                margin: 2rem auto;
+                padding: 2rem;
+                width: 90%;
+            }
+        }
+
+        /* Mobile-optimized form */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Ensure all images are responsive */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            width: 100%;
+        }
+
+        /* Prevent any horizontal overflow */
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 2rem;
+            color: #222;
+            line-height: 1.2;
+            font-weight: 700;
+            padding: 0 8px;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                margin-bottom: 3rem;
+                padding: 0;
+            }
+        }
+
+        /* Mobile-optimized footer */
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 100%;
+            margin: 0 auto 2rem;
+            padding: 0 8px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                max-width: 980px;
+                padding: 0;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+            }
+        }
+
+        /* Ensure no horizontal scroll on any element */
+        .hero-highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 0 0.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* Mobile-specific fixes */
+        @media (max-width: 767px) {
+            .header-content {
+                padding: 0 8px;
+            }
+            
+            .hero p {
+                padding: 0 4px;
+            }
+            
+            .cta-button {
+                margin: 0.5rem 0;
+                width: 100%;
+                max-width: none;
+            }
+            
+            .feature-card {
+                margin: 0 4px;
+            }
+            
+            .accommodation-card {
+                margin: 0 4px;
+            }
+            
+            .contact-item {
+                padding: 0.8rem;
+                margin-bottom: 1rem;
+            }
+            
+            .contact-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+                margin-right: 1rem;
+            }
+        }
+
+        /* Prevent horizontal scroll on all screen sizes */
+        html, body, .container, section, .header, .hero, .features, .accommodations, .contact, .footer {
+            max-width: 100vw;
+            overflow-x: hidden;
         }
     </style>
 </head>
