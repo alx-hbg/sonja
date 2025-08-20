@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monteurzimmer Werra-Meißner - Komfortable Unterkünfte für Handwerker</title>
+    <meta name="description" content="Vollausgestattete Monteurzimmer in der Werra-Meißner Region. Günstig, sauber, zentral gelegen.">
+    
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fefefe;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            color: #222;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #00a699;
+            text-shadow: 0 2px 4px rgba(0, 166, 153, 0.2);
+        }
+
+        .header-cta {
+            background: linear-gradient(135deg, #ff6b9d, #ff4d8d);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+            border: 2px solid #ff4d8d;
+            text-align: center;
+        }
+
+        .header-cta:hover {
+            background: linear-gradient(135deg, #ff4d8d, #ff2d7d);
+            border-color: #ff2d7d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, #ff6b9d, #ff4d8d);
+            border: 2px solid #ff6b9d;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+        }
+
+        .contact-btn:hover {
+            background: linear-gradient(135deg, #ff4d8d, #ff2d7d);
+            border-color: #ff4d8d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
+        }
+
+        /* Hero section */
+        .hero {
+            background: linear-gradient(135deg, #00d4aa 0%, #00a699 100%);
+            color: white;
+            padding: 100px 16px 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: white;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: clamp(1.4rem, 3.5vw, 1.6rem);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: white;
+            line-height: 1.5;
+            font-weight: 600;
+        }
+
+        .hero-highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 0 0.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ff6b9d, #ff4d8d);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+            margin: 0.5rem;
+            font-weight: 700;
+            border: 3px solid #ff4d8d;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(135deg, #ff4d8d, #ff2d7d);
+            border-color: #ff2d7d;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
+        }
+
+        .cta-button.whatsapp-hero {
+            background: linear-gradient(135deg, #25d366, #00ff88);
+            border-color: #25d366;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .cta-button.whatsapp-hero:hover {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            border-color: #00ff88;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Section styling */
+        section {
+            padding: 80px 16px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2.2rem, 5vw, 2.5rem);
+            margin-bottom: 3rem;
+            color: #222;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Features */
+        .features {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: 1fr;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 720px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid #f0f0f0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #00a699;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #00a699, #00d4aa);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 166, 153, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #222;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Accommodations */
+        .accommodations {
+            background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+        }
+
+        .accommodation-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: 1fr;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 720px) {
+            .accommodation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .accommodation-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            transition: all 0.3s ease;
+            border: 3px solid #f0f0f0;
+        }
+
+        .accommodation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            border-color: #00a699;
+        }
+
+        /* Photo Carousel Styles */
+        .photo-carousel {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .carousel-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .placeholder-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #00a699, #00d4aa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            text-align: center;
+            padding: 2rem;
+            border: 3px dashed #00a699;
+            font-weight: 600;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            color: #222;
+            border: none;
+            padding: 1.2rem;
+            cursor: pointer;
+            font-size: 1.8rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 10;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-btn:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-btn.prev {
+            left: 1rem;
+        }
+
+        .carousel-btn.next {
+            right: 1rem;
+        }
+
+        /* Mobile optimization for carousel buttons */
+        @media (max-width: 768px) {
+            .carousel-btn {
+                width: 52px;
+                height: 52px;
+                font-size: 1.6rem;
+                padding: 1rem;
+            }
+            
+            .carousel-btn.prev {
+                left: 0.5rem;
+            }
+            
+            .carousel-btn.next {
+                right: 0.5rem;
+            }
+
+            .feature-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2.2rem;
+            }
+
+            .price {
+                font-size: 1.8rem;
+                padding: 0.8rem;
+            }
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.8rem;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #00a699;
+            transform: scale(1.2);
+        }
+
+        .indicator:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: scale(1.1);
+        }
+
+        .accommodation-image {
+            height: 200px;
+            background: linear-gradient(45deg, #2d5a27, #8b4513);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .accommodation-content {
+            padding: 2rem;
+        }
+
+        .accommodation-title {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: #222;
+            font-weight: 700;
+        }
+
+        .accommodation-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .accommodation-features li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .accommodation-features li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b9d;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .location-map {
+            margin: 1rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #f0f0f0;
+        }
+
+                 .location-map iframe {
+             width: 100%;
+             height: 300px;
+             border: none;
+             border-radius: 12px 12px 0 0;
+         }
+         
+         .map-info {
+             background: #f8f9fa;
+             padding: 1rem;
+             border-radius: 0 0 12px 12px;
+             border: 1px solid #f0f0f0;
+             border-top: none;
+         }
+         
+         .map-info p {
+             margin-bottom: 0.75rem;
+             color: #555;
+             font-size: 0.95rem;
+         }
+         
+         .map-link {
+             display: inline-block;
+             background: #00a699;
+             color: white;
+             padding: 0.5rem 1rem;
+             border-radius: 6px;
+             text-decoration: none;
+             font-size: 0.9rem;
+             font-weight: 500;
+             transition: all 0.3s ease;
+         }
+         
+         .map-link:hover {
+             background: #008f85;
+             transform: translateY(-1px);
+         }
+
+        /* Contact section */
+        .contact {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #222;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 720px) {
+            .contact-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 3rem;
+            }
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .quick-contact {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .quick-contact h3 {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-button {
+            background: linear-gradient(135deg, #00a699, #00d4aa);
+            border: 3px solid #00a699;
+            color: white;
+            padding: 1.2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 166, 153, 0.3);
+        }
+
+        .contact-button:hover {
+            background: linear-gradient(135deg, #008f85, #00a699);
+            border-color: #008f85;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 166, 153, 0.4);
+        }
+
+        /* Enhanced Contact Section */
+        .contact-hero {
+            background: linear-gradient(135deg, #00a699, #00d4aa);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="90" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(100px, 100px) rotate(360deg); }
+        }
+
+        .contact-hero h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-visual {
+            background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 3px solid #ff6b9d;
+            margin-bottom: 2rem;
+        }
+
+        .contact-visual-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .contact-visual h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #222;
+        }
+
+        .contact-visual p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Enhanced existing contact elements */
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: #00a699;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: #00a699;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 166, 153, 0.2);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            margin-right: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background: linear-gradient(135deg, #00a699, #00d4aa);
+            border-radius: 50%;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 166, 153, 0.3);
+        }
+
+        .quick-contact {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 3px solid #00a699;
+            box-shadow: 0 8px 25px rgba(0, 166, 153, 0.15);
+        }
+
+        .quick-contact h3 {
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.6rem;
+            color: #00a699;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .contact-button {
+            background: linear-gradient(135deg, #00a699, #00d4aa);
+            border: 3px solid #00a699;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 166, 153, 0.3);
+        }
+
+        .contact-button:hover {
+            background: linear-gradient(135deg, #008f85, #00a699);
+            border-color: #008f85;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 166, 153, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #222;
+            color: white;
+            padding: 2rem 16px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: 980px;
+            margin: 0 auto 2rem;
+        }
+
+        @media (min-width: 720px) {
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #d4c5b9;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #e8e6e0;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #d4c5b9;
+        }
+
+        /* Booking form styles */
+        .booking-form {
+            background: rgba(255,255,255,0.95);
+            padding: 2rem;
+            border-radius: 14px;
+            margin: 1rem 0;
+            border: 1px solid #e8e6e0;
+        }
+
+        .booking-form h4 {
+            color: #222;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 720px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.75rem;
+            border: 2px solid #e8e6e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00a699;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .booking-btn {
+            background: linear-gradient(135deg, #ff6b9d, #ff4d8d);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+            border: 2px solid #ff4d8d;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+        }
+
+        .booking-btn:hover {
+            background: linear-gradient(135deg, #ff4d8d, #ff2d7d);
+            border-color: #ff2d7d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        /* Modal styles for booking form */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 14px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #00a699;
+        }
+
+        .book-now-btn {
+            background: linear-gradient(135deg, #ff6b9d, #ff4d8d);
+            color: white;
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1.5rem;
+            border: 3px solid #ff4d8d;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+        }
+
+        .book-now-btn:hover {
+            background: linear-gradient(135deg, #ff4d8d, #ff2d7d);
+            border-color: #ff2d7d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                justify-content: space-between;
+            }
+
+            .contact-btn {
+                padding: 0.4rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .header-title {
+                font-size: 1.2rem;
+            }
+
+            .header-cta {
+                font-size: 0.9rem;
+                padding: 0.6rem 1rem;
+            }
+        }
+
+        /* Fade in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-title">🏠 Dein Monteurzimmer in Heringen</div>
+                <a href="tel:+4917630167602" class="header-cta">📞 Jetzt anrufen</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>🏠 Monteurzimmer in Heringen</h1>
+            <p>Vollausgestattete 2-Zimmer-Wohnung • <span class="hero-highlight">Top Service</span> • <span class="hero-highlight">Ab 25€/Nacht</span></p>
+            <a href="#" class="cta-button" onclick="openBookingModal('heringen')">🔍 Verfügbarkeit prüfen</a>
+            <a href="https://wa.me/4917630167602?text=Hallo,%20ich%20interessiere%20mich%20für%20eine%20Monteurswohnung%20in%20Heringen" class="cta-button whatsapp-hero">
+                💬 WhatsApp Nachricht
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Warum unser Monteurzimmer in Heringen?</h2>
+            <p class="section-subtitle">Alles was Sie für einen komfortablen Aufenthalt brauchen</p>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🛏️</div>
+                    <h3>Vollmöbliert</h3>
+                    <p>Einzelbetten, Kleiderschränke, Küche und alles was Sie brauchen - sofort bezugsfertig</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📶</div>
+                    <h3>Kostenloses WLAN</h3>
+                    <p>Schnelles Internet für Video-Calls nach Hause und Entertainment nach Feierabend</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🍳</div>
+                    <h3>Vollküche</h3>
+                    <p>Herd, Kühlschrank, Kaffeemaschine - Selbstversorgung rund um die Uhr möglich</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🚗</div>
+                    <h3>Kostenlose Parkplätze</h3>
+                    <p>Sichere Parkmöglichkeiten direkt vor der Unterkunft - auch für Transporter</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🧺</div>
+                    <h3>Waschmaschine</h3>
+                    <p>Eigene Waschmaschine in jeder Unterkunft für saubere Arbeitskleidung</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Top Service</h3>
+                    <p>24/7 Erreichbarkeit, schnelle Reaktionszeiten und persönliche Betreuung vor Ort</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accommodations Section -->
+    <section class="accommodations">
+        <div class="container">
+            <h2 class="section-title">Unser Monteurzimmer in Heringen</h2>
+            <div class="accommodation-grid">
+                <!-- Heringen Wohnung -->
+                <div class="accommodation-card fade-in">
+                    <!-- Photo Carousel -->
+                    <div class="photo-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-slide active">
+                                <img src="assets/images/heringen-1.jpg" alt="Monteurswohnung Heringen - Wohnzimmer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="placeholder-image" style="display: none;">
+                                    📸 Wohnzimmer - Monteurswohnung Heringen
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/heringen-2.jpg" alt="Monteurswohnung Heringen - Schlafzimmer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="placeholder-image" style="display: none;">
+                                    📸 Schlafzimmer - Monteurswohnung Heringen
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/heringen-3.jpg" alt="Monteurswohnung Heringen - Küche" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="placeholder-image" style="display: none;">
+                                    📸 Küche - Monteurswohnung Heringen
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/heringen-4.jpg" alt="Monteurswohnung Heringen - Bad" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="placeholder-image" style="display: none;">
+                                    📸 Bad - Monteurswohnung Heringen
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/heringen-5.jpg" alt="Monteurswohnung Heringen - Außenansicht" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="placeholder-image" style="display: none;">
+                                    📸 Außenansicht - Monteurswohnung Heringen
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Carousel Navigation -->
+                        <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+                        <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+                        
+                        <!-- Carousel Indicators -->
+                        <div class="carousel-indicators">
+                            <span class="indicator active" onclick="currentSlide(1)"></span>
+                            <span class="indicator" onclick="currentSlide(2)"></span>
+                            <span class="indicator" onclick="currentSlide(3)"></span>
+                            <span class="indicator" onclick="currentSlide(4)"></span>
+                            <span class="indicator" onclick="currentSlide(5)"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="accommodation-content">
+                        <h3 class="accommodation-title">2-Zimmer-Monteurzimmer Heringen</h3>
+                        <p>Moderne, vollausgestattete Unterkunft im Zentrum von Heringen (Werra). Ideal für 1-2 Monteure oder Handwerker.</p>
+                        <ul class="accommodation-features">
+                            <li>50m² Wohnfläche</li>
+                            <li>Separates Schlafzimmer</li>
+                            <li>Vollküche mit Geschirrspüler</li>
+                            <li>Balkon mit Blick ins Grüne</li>
+                            <li>Smart-TV 42"</li>
+                            <li>Eigener Parkplatz</li>
+                            <li>Kostenloses WLAN</li>
+                            <li>Waschmaschine</li>
+                        </ul>
+                        <div class="price">ab 25€ / Nacht / Person</div>
+                        <button class="book-now-btn" onclick="openBookingModal('heringen')">
+                            📅 Jetzt anfragen
+                        </button>
+                                                 <div class="location-map">
+                             <iframe 
+                                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d314.62594996371746!2d10.0109109!3d50.8865697!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a359003f30e887%3A0xef18933c7f7df17e!2sMonteurzimmer%20Monteurwohnung%20Cosima%20J%C3%A4hn%20-%20Heringen%20Philippsthal%20Berka%20Wildeck%20Friedewald!5e0!3m2!1sde!2sde!4v1755720277324!5m2!1sde!2sde"
+                                 width="100%" 
+                                 height="300" 
+                                 style="border:0;" 
+                                 allowfullscreen="" 
+                                 loading="lazy" 
+                                 referrerpolicy="no-referrer-when-downgrade">
+                             </iframe>
+                             <div class="map-info">
+                                 <p><strong>📍 Adresse:</strong> August-Vilmar-Straße 20, 36266 Heringen (Werra)</p>
+                                 <a href="https://maps.app.goo.gl/dUnEMCLdLApUH8k76" target="_blank" class="map-link">
+                                     🗺️ In Google Maps öffnen
+                                 </a>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Jetzt Kontakt aufnehmen</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Ihre Gastgeber</h3>
+                    <p style="margin-bottom: 2rem;">Wir freuen uns auf Ihre Anfrage! Als lokale Vermieter kennen wir die Region und helfen Ihnen gerne bei der Auswahl der passenden Unterkunft.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>+49 176 30167602</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>kontakt@monteurswohnungen-werra.de</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>Werra-Meißner-Kreis<br>Hessen, Deutschland</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Monteurzimmer Heringen</h4>
+                    <p>Ihr zuverlässiger Gastgeber für komfortable Monteurunterkünfte in Heringen (Werra).</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Schnellkontakt</h4>
+                    <p>📱 +49 176 30167602<br>
+                    ✉️ kontakt@monteurswohnungen-werra.de<br>
+                    📍 Werra-Meißner-Kreis</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Rechtliches</h4>
+                    <p><a href="#impressum">Impressum</a><br>
+                    <a href="#datenschutz">Datenschutz</a><br>
+                    <a href="#agb">AGB</a></p>
+                </div>
+            </div>
+            
+            <!-- Impressum -->
+            <div id="impressum" style="text-align: left; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #444;">
+                                 <h4 style="color: #d4c5b9; margin-bottom: 1rem;">Impressum</h4>
+                 <p><strong>Monteurzimmer Werra-Meißner</strong><br>
+                Vertreten durch: Cosima Jähn<br>
+                August-Vilmar-Straße 20<br>
+                36266 Heringen<br>
+                Deutschland</p>
+                
+                <p style="margin-top: 1rem;"><strong>Kontakt:</strong><br>
+                Telefon: +49 176 30167602<br>
+                E-Mail: cosimajaehn@gmail.com</p>
+                
+                <p style="margin-top: 1rem;"><strong>Umsatzsteuer-ID:</strong><br>
+                Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE402498315</p>
+                
+                <p style="margin-top: 1rem;"><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
+                Cosima Jähn<br>
+                August-Vilmar-Straße 20<br>
+                36266 Heringen</p>
+            </div>
+            
+            <p style="margin-top: 2rem; text-align: center; color: #ccc;">© 2025 Monteurzimmer Heringen. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <div class="booking-form">
+                <h4 id="modalTitle">Buchungsanfrage</h4>
+                <form id="bookingForm" onsubmit="submitBooking(event)">
+                    <input type="hidden" id="selectedLocation" name="location">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="checkin">Anreisedatum <span class="required">*</span></label>
+                            <input type="date" id="checkin" name="checkin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout">Abreisedatum <span class="required">*</span></label>
+                            <input type="date" id="checkout" name="checkout" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="persons">Anzahl Personen <span class="required">*</span></label>
+                            <select id="persons" name="persons" required>
+                                <option value="">Bitte wählen</option>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 Personen</option>
+                                <option value="3">3 Personen</option>
+                                <option value="4">4 Personen</option>
+                                <option value="5+">5+ Personen</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="accommodation">Gewünschte Unterkunft</label>
+                            <select id="accommodation" name="accommodation">
+                                <option value="">Automatische Auswahl</option>
+                                <option value="1-zimmer">1-Zimmer Apartment</option>
+                                <option value="2-zimmer">2-Zimmer Wohnung</option>
+                                <option value="3-zimmer">3-Zimmer Wohnung</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" placeholder="Vor- und Nachname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="ihre@email.de" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Zusätzliche Anforderungen</label>
+                        <textarea id="message" name="message" placeholder="Besondere Wünsche, Fragen oder Anmerkungen..."></textarea>
+                    </div>
+
+                    <button type="submit" class="booking-btn">
+                        📧 Buchungsanfrage senden
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Location data for booking form
+        const locations = {
+            heringen: {
+                name: "2-Zimmer-Monteurzimmer Heringen",
+                address: "August-Vilmar-Straße 20, 36266 Heringen (Werra)",
+                price: "25€",
+                maxPersons: 2
+            }
+        };
+
+        // Open booking modal for specific location
+        function openBookingModal(locationKey) {
+            const modal = document.getElementById('bookingModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const selectedLocation = document.getElementById('selectedLocation');
+            const personsSelect = document.getElementById('persons');
+            
+            const location = locations[locationKey];
+            if (location) {
+                modalTitle.textContent = `Buchungsanfrage - ${location.name}`;
+                selectedLocation.value = locationKey;
+                
+                // Update persons dropdown based on location capacity
+                personsSelect.innerHTML = '<option value="">Bitte wählen</option>';
+                for (let i = 1; i <= location.maxPersons; i++) {
+                    personsSelect.innerHTML += `<option value="${i}">${i} Person${i > 1 ? 'en' : ''}</option>`;
+                }
+                if (location.maxPersons >= 5) {
+                    personsSelect.innerHTML += '<option value="5+">5+ Personen</option>';
+                }
+            }
+            
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('checkin').min = today;
+            document.getElementById('checkout').min = today;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close booking modal
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Handle booking form submission
+        function submitBooking(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            const location = locations[data.location];
+            
+            // Calculate number of nights
+            const checkin = new Date(data.checkin);
+            const checkout = new Date(data.checkout);
+            const nights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
+            
+            // Format email content
+            const subject = `Buchungsanfrage - ${location.name}`;
+            const body = `
+Neue Buchungsanfrage
+
+UNTERKUNFT:
+${location.name}
+${location.address}
+Preis: ab ${location.price} pro Person/Nacht
+
+BUCHUNGSDETAILS:
+Anreise: ${formatDate(data.checkin)}
+Abreise: ${formatDate(data.checkout)}
+Anzahl Nächte: ${nights}
+Personen: ${data.persons}
+Gewünschte Unterkunft: ${data.accommodation || 'Automatische Auswahl'}
+
+KONTAKTDATEN:
+Name: ${data.name}
+E-Mail: ${data.email}
+Telefon: ${data.phone || 'Nicht angegeben'}
+
+ZUSÄTZLICHE ANFORDERUNGEN:
+${data.message || 'Keine besonderen Wünsche'}
+
+---
+Diese Anfrage wurde über die Website gesendet.
+            `.trim();
+            
+            // Create mailto link
+            const mailtoLink = `mailto:cosimajaehn@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Close modal and show confirmation
+            closeBookingModal();
+            alert('Ihre Buchungsanfrage wird in Ihrem E-Mail-Programm geöffnet. Bitte senden Sie die E-Mail ab, um die Anfrage zu übermitteln.');
+        }
+
+        // Format date for display
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('de-DE', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // Update checkout date when checkin changes
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkinInput = document.getElementById('checkin');
+            const checkoutInput = document.getElementById('checkout');
+            
+            checkinInput.addEventListener('change', function() {
+                const checkinDate = new Date(this.value);
+                const nextDay = new Date(checkinDate);
+                nextDay.setDate(nextDay.getDate() + 1);
+                
+                checkoutInput.min = nextDay.toISOString().split('T')[0];
+                
+                // If checkout is before new minimum, update it
+                if (checkoutInput.value && new Date(checkoutInput.value) <= checkinDate) {
+                    checkoutInput.value = nextDay.toISOString().split('T')[0];
+                }
+            });
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                closeBookingModal();
+            }
+        };
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact button tracking
+        document.querySelectorAll('.contact-button, .cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                console.log('Contact button clicked:', this.textContent.trim());
+            });
+        });
+
+        // Auto-focus on contact section if URL has contact parameter
+        if (window.location.hash === '#contact' || window.location.search.includes('contact')) {
+            setTimeout(() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 500);
+        }
+
+        // Photo Carousel Functions
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            // Show current slide
+            if (slides[index]) {
+                slides[index].classList.add('active');
+                if (indicators[index]) {
+                    indicators[index].classList.add('active');
+                }
+            }
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            
+            // Loop around
+            if (currentSlideIndex >= slides.length) {
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex < 0) {
+                currentSlideIndex = slides.length - 1;
+            }
+            
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto-advance carousel every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    </script>
+</body>
+</html>
