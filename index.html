@@ -54,7 +54,7 @@
         .header-cta:hover {
             background: linear-gradient(135deg, #ff4d8d, #ff2d7d);
             border-color: #ff2d7d;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
             box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
         }
 
@@ -74,7 +74,7 @@
         .contact-btn:hover {
             background: linear-gradient(135deg, #ff4d8d, #ff2d7d);
             border-color: #ff4d8d;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
             box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
         }
 
@@ -82,10 +82,10 @@
         .hero {
             background: linear-gradient(135deg, #00d4aa 0%, #00a699 100%);
             color: white;
-            padding: 140px 16px 180px;
+            padding: 140px 16px 200px;
             text-align: center;
             width: 100%;
-            overflow: hidden;
+            overflow: visible;
             position: relative;
         }
 
@@ -93,10 +93,10 @@
         .hero::after {
             content: '';
             position: absolute;
-            bottom: -100px;
+            bottom: -120px;
             left: 0;
             right: 0;
-            height: 100px;
+            height: 120px;
             background: linear-gradient(135deg, #00d4aa 0%, #00a699 100%);
             z-index: -1;
         }
@@ -105,7 +105,7 @@
 
         @media (min-width: 768px) {
             .hero {
-                padding: 160px 16px 160px;
+                padding: 160px 16px 180px;
             }
         }
 
@@ -131,7 +131,7 @@
 
         .hero-highlight {
             background: rgba(255, 255, 255, 0.2);
-            padding: 0.5rem 1rem;
+            padding: 0.15rem 0.8rem;
             border-radius: 25px;
             display: inline-block;
             margin: 0 0.5rem;
@@ -157,7 +157,7 @@
         .cta-button:hover {
             background: linear-gradient(135deg, #ff4d8d, #ff2d7d);
             border-color: #ff2d7d;
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 107, 157, 0.6);
         }
 
@@ -197,8 +197,8 @@
         /* Features */
         .features {
             background: white;
-            padding: 4rem 0;
-            margin-top: -2rem;
+            padding: 6rem 0;
+            margin-top: 0;
         }
 
 
@@ -229,7 +229,7 @@
 
         .feature-item:hover {
             border-color: #00a699;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
             box-shadow: 0 4px 15px rgba(0, 166, 153, 0.15);
         }
 
@@ -278,7 +278,7 @@
             color: white;
             border: none;
             padding: 1.2rem 1.5rem;
-            border-radius: 12px;
+            border-radius: 16px !important;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
@@ -294,16 +294,39 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 166, 153, 0.4);
         }
+        
+        /* Ensure inquiry button hover overrides action-btn hover */
+        .inquiry-btn-toggle:hover {
+            background: linear-gradient(135deg, #ff4d8d, #ff2d7d) !important;
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4) !important;
+            transform: translateY(-1px) !important;
+        }
 
         /* Pink styling for inquiry button */
         .inquiry-btn-toggle {
             background: linear-gradient(135deg, #ff6b9d, #ff4d8d) !important;
             box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3) !important;
+            border-radius: 16px !important;
+            /* Override any action-btn styles */
+            color: white !important;
         }
 
         .inquiry-btn-toggle:hover {
             background: linear-gradient(135deg, #ff4d8d, #ff2d7d) !important;
             box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4) !important;
+            transform: translateY(-1px) !important;
+        }
+        
+        /* Green styling for maps button */
+        .maps-btn-toggle {
+            background: linear-gradient(135deg, #00a699, #00d4aa) !important;
+            box-shadow: 0 4px 15px rgba(0, 166, 153, 0.3) !important;
+            border-radius: 16px !important;
+        }
+
+        .maps-btn-toggle:hover {
+            background: linear-gradient(135deg, #008f85, #00a699) !important;
+            box-shadow: 0 6px 20px rgba(0, 166, 153, 0.4) !important;
         }
 
         .action-btn .toggle-icon {
@@ -323,6 +346,26 @@
             border: 2px solid rgba(0, 166, 153, 0.2);
             transition: all 0.3s ease;
         }
+        
+        /* Pink styling for inquiry section */
+        #apartment-inquiry-section {
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1) 0%, rgba(255, 77, 141, 0.05) 100%) !important;
+            border: 2px solid rgba(255, 107, 157, 0.3) !important;
+        }
+        
+        /* Pink styling for second apartment inquiry section */
+        #apartment-inquiry-section2 {
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1) 0%, rgba(255, 77, 141, 0.05) 100%) !important;
+            border: 2px solid rgba(255, 107, 157, 0.3) !important;
+        }
+        
+        /* Maps section - edge to edge for both mobile and desktop */
+        #apartment-maps-section,
+        #apartment-maps-section2 {
+            padding: 0;
+            border-radius: 16px;
+            overflow: hidden;
+        }
 
         @media (max-width: 719px) {
             .apartment-actions {
@@ -333,10 +376,27 @@
             .action-btn {
                 padding: 1rem 1.2rem;
                 font-size: 1rem;
+                border-radius: 16px;
+            }
+            
+            .maps-btn-toggle {
+                border-radius: 16px !important;
             }
             
             .apartment-section {
                 padding: 1.5rem;
+            }
+            
+            /* Pink styling for inquiry section on mobile */
+            #apartment-inquiry-section {
+                background: linear-gradient(135deg, rgba(255, 107, 157, 0.15) 0%, rgba(255, 77, 141, 0.08) 100%) !important;
+                border: 2px solid rgba(255, 107, 157, 0.4) !important;
+            }
+            
+            /* Pink styling for second apartment inquiry section on mobile */
+            #apartment-inquiry-section2 {
+                background: linear-gradient(135deg, rgba(255, 107, 157, 0.15) 0%, rgba(255, 77, 141, 0.08) 100%) !important;
+                border: 2px solid rgba(255, 107, 157, 0.4) !important;
             }
 
             /* Remove padding for maps section on mobile to allow full edge-to-edge display */
@@ -353,6 +413,8 @@
             align-items: stretch;
             gap: 3rem;
             text-align: left;
+            /* Ensure buttons have space for hover effects */
+            padding: 1rem 0;
         }
 
         .contact-host-info {
@@ -390,6 +452,8 @@
             flex-shrink: 0;
             flex: 0.5;
             justify-content: space-between;
+            /* Ensure buttons have space for hover effects */
+            padding: 0.5rem 0;
         }
 
         .contact-details .contact-button {
@@ -410,7 +474,7 @@
         }
 
         .contact-details .contact-button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-1px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
 
@@ -443,6 +507,7 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 2rem;
+                padding: 1.5rem 0;
             }
             
             .contact-details {
@@ -450,6 +515,7 @@
                 gap: 1rem;
                 align-items: center;
                 justify-content: center;
+                padding: 1rem 0;
             }
             
             .contact-details .contact-button {
@@ -490,7 +556,7 @@
         /* Accommodations */
         .accommodations {
             background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
-            padding: 7rem 0;
+            padding: 7rem 0 4rem;
         }
 
         .accommodation-grid {
@@ -499,7 +565,10 @@
             grid-template-columns: 1fr;
             max-width: 800px;
             margin: 0 auto;
-            padding: 4rem 0;
+            padding: 4rem 0 2rem;
+            /* Ensure shadows are fully visible */
+            overflow: visible;
+            position: relative;
         }
 
         @media (min-width: 720px) {
@@ -517,7 +586,11 @@
             border: 3px solid #f0f0f0;
             position: relative;
             z-index: 1;
-            margin: 3rem 0;
+            margin: 4rem 0;
+            /* Ensure shadow is fully visible */
+            transform: translateZ(0);
+            /* Add extra padding to prevent shadow clipping */
+            padding-bottom: 2rem;
         }
 
         .accommodation-card:hover {
@@ -533,6 +606,8 @@
             overflow: visible;
             border-radius: 20px 20px 0 0;
             margin: 0;
+            /* Ensure shadow is fully visible */
+            padding-bottom: 1rem;
         }
 
         .carousel-container {
@@ -797,13 +872,13 @@
             border: 1px solid #f0f0f0;
         }
 
-        /* Mobile maps section - edge to edge */
-        @media (max-width: 767px) {
-            #apartment-maps-section .location-map {
-                margin: 0;
-                border-radius: 0;
-                border: none;
-            }
+        /* Maps section - edge to edge for both mobile and desktop */
+        #apartment-maps-section .location-map,
+        #apartment-maps-section2 .location-map {
+            margin: 0;
+            border-radius: 16px;
+            border: none;
+            overflow: hidden;
         }
 
                  .location-map iframe {
@@ -813,12 +888,27 @@
              border-radius: 12px 12px 0 0;
          }
          
+                 /* Maps section iframe - edge to edge for both mobile and desktop */
+        #apartment-maps-section .location-map iframe,
+        #apartment-maps-section2 .location-map iframe {
+            border-radius: 0;
+            /* Ensure iframe respects container's rounded corners */
+            display: block;
+        }
+         
          .map-info {
              background: #f8f9fa;
              padding: 1rem;
              border-radius: 0 0 12px 12px;
              border: 1px solid #f0f0f0;
              border-top: none;
+         }
+         
+         /* Maps section info - edge to edge for both mobile and desktop */
+         #apartment-maps-section .map-info,
+         #apartment-maps-section2 .map-info {
+             border-radius: 0 0 16px 16px;
+             border: none;
          }
          
          .map-info p {
@@ -1404,6 +1494,8 @@
             scroll-behavior: smooth;
             overflow-x: hidden;
             width: 100%;
+            /* Ensure shadows are not clipped */
+            overflow-y: visible;
         }
 
         body {
@@ -1414,6 +1506,8 @@
             overflow-x: hidden;
             width: 100%;
             position: relative;
+            /* Ensure shadows are not clipped */
+            overflow-y: visible;
         }
 
         /* Prevent horizontal overflow */
@@ -1424,6 +1518,16 @@
             margin: 0 auto;
             overflow-x: hidden;
             overflow-y: visible;
+        }
+        
+        /* Ensure hero container allows shadows */
+        .hero .container {
+            overflow: visible;
+        }
+        
+        /* Ensure accommodation container allows shadows */
+        .accommodations .container {
+            overflow: visible;
         }
 
         @media (min-width: 768px) {
@@ -1438,6 +1542,11 @@
             padding: 40px 0;
             width: 100%;
             overflow-x: hidden;
+        }
+        
+        /* Ensure accommodation section allows shadows */
+        .accommodations {
+            overflow: visible;
         }
 
         @media (min-width: 768px) {
@@ -1582,7 +1691,7 @@
         /* Mobile accommodation section padding */
         @media (max-width: 767px) {
             .accommodations {
-                padding: 5rem 0;
+                padding: 5rem 0 3rem;
             }
         }
 
@@ -1833,7 +1942,7 @@
                 display: inline-block;
                 background: rgba(255, 255, 255, 0.2);
                 border: 2px solid rgba(255, 255, 255, 0.3);
-                padding: 0.4rem 0.8rem;
+                padding: 0.1rem 0.6rem;
                 margin: 0 0.3rem 0.5rem;
                 font-weight: 700;
                 border-radius: 20px;
@@ -1846,7 +1955,8 @@
             }
             
             .accommodation-card {
-                margin: 1rem 0;
+                margin: 2rem 0;
+                padding-bottom: 1.5rem;
             }
             
             .contact-item {
@@ -1871,9 +1981,14 @@
         }
 
         /* Prevent horizontal scroll on all screen sizes */
-        html, body, .container, section, .header, .hero, .features, .accommodations, .contact, .footer {
+        html, body, .container, section, .header, .features, .accommodations, .contact, .footer {
             max-width: 100vw;
             overflow-x: hidden;
+        }
+        
+        /* Ensure hero section allows shadows to be visible */
+        .hero {
+            overflow: visible;
         }
 
         /* Hero Inquiry Form */
@@ -1882,7 +1997,7 @@
             padding: 3rem;
             border-radius: 25px;
             border: 4px solid #ff6b9d;
-            margin: 3rem auto 3.5rem;
+            margin: 3rem auto 4rem;
             backdrop-filter: blur(20px);
             max-width: 750px;
             position: relative;
@@ -1891,6 +2006,8 @@
             transition: all 0.3s ease;
             /* Ensure shadow is fully visible */
             transform: translateZ(0);
+            /* Prevent shadow clipping */
+            overflow: visible;
         }
 
         .hero-inquiry-form:hover {
@@ -2059,11 +2176,11 @@
         /* Mobile-specific hero inquiry form */
         @media (max-width: 767px) {
             .hero {
-                padding: 100px 16px 160px;
+                padding: 100px 16px 180px;
             }
             
             .hero-inquiry-form {
-                margin: 1.5rem 8px 4rem;
+                margin: 1.5rem 8px 5rem;
                 padding: 2rem 1.5rem;
                 border-radius: 20px;
             }
@@ -2643,6 +2760,153 @@
                                 </div>
                              </div>
                          </div>
+                    </div>
+                </div>
+                
+                <!-- Zweite Wohnung - Dummy -->
+                <div class="accommodation-card fade-in">
+                    <!-- Photo Carousel -->
+                    <div class="photo-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-slide active">
+                                <img src="assets/images/heringen-1.jpg" alt="Monteurswohnung Heringen - Wohnzimmer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="placeholder-image" style="display: none;">
+                                    📸 Wohnzimmer - Monteurswohnung Heringen
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/heringen-2.jpg" alt="Monteurswohnung Heringen - Schlafzimmer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="placeholder-image" style="display: none;">
+                                    📸 Schlafzimmer - Monteurswohnung Heringen
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/heringen-3.jpg" alt="Monteurswohnung Heringen - Küche" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="placeholder-image" style="display: none;">
+                                    📸 Küche - Monteurswohnung Heringen
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/heringen-4.jpg" alt="Monteurswohnung Heringen - Bad" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="placeholder-image" style="display: none;">
+                                    📸 Bad - Monteurswohnung Heringen
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="assets/images/heringen-5.jpg" alt="Monteurswohnung Heringen - Außenansicht" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="placeholder-image" style="display: none;">
+                                    📸 Außenansicht - Monteurswohnung Heringen
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Carousel Navigation -->
+                        <button class="carousel-btn prev" onclick="changeSlide2(-1)">❮</button>
+                        <button class="carousel-btn next" onclick="changeSlide2(1)">❯</button>
+                        
+                        <!-- Carousel Indicators -->
+                        <div class="carousel-indicators">
+                            <span class="indicator active" onclick="currentSlide2(1)"></span>
+                            <span class="indicator" onclick="currentSlide2(2)"></span>
+                            <span class="indicator" onclick="currentSlide2(3)"></span>
+                            <span class="indicator" onclick="currentSlide2(4)"></span>
+                            <span class="indicator" onclick="currentSlide2(5)"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="accommodation-content">
+                         <div class="accommodation-header">
+                             <h3 class="accommodation-title">Zweite Monteurswohnung</h3>
+                             <div class="accommodation-price">ab 25€ / Nacht / Person</div>
+                         </div>
+                         <p>Großzügige Monteurunterkunft mit 5-10 Zimmern im Zentrum von Heringen (Werra). Ideal für größere Gruppen von Monteuren oder Handwerkern. Alle Zimmer sind mit Küche und Bad ausgestattet.</p>
+                         
+                         <div class="accommodation-features-grid">
+                             <div class="feature-box">5-10 Zimmer verfügbar</div>
+                             <div class="feature-box">Einzel- & 3-Bett Zimmer</div>
+                             <div class="feature-box">Vollküche mit Geschirrspüler</div>
+                             <div class="feature-box">Eigenes Bad pro Zimmer</div>
+                             <div class="feature-box">Smart-TV in jedem Zimmer</div>
+                             <div class="feature-box">Eigener Parkplatz pro Wohneinheit</div>
+                             <div class="feature-box">Kostenloses WLAN</div>
+                             <div class="feature-box">Waschmaschine verfügbar</div>
+                         </div>
+                         
+                         <!-- Action buttons for apartment -->
+                        <div class="apartment-actions">
+                            <!-- Button for inquiry form -->
+                            <button class="action-btn inquiry-btn-toggle" onclick="toggleApartmentInquiry2()">
+                                📅 Unkomplizierte Anfrage
+                                <span class="toggle-icon" id="inquiry-toggle2">▼</span>
+                        </button>
+                            
+                            <!-- Button for maps -->
+                            <button class="action-btn maps-btn-toggle" onclick="toggleApartmentMaps2()">
+                                🗺️ Auf Karte zeigen
+                                <span class="toggle-icon" id="maps-toggle2">▼</span>
+                            </button>
+                        </div>
+
+                        <!-- Inquiry form (initially hidden) -->
+                        <div class="apartment-section" id="apartment-inquiry-section2" style="display: none;">
+                            <form class="simple-apartment-form" onsubmit="submitApartmentInquiry2(event)">
+                                <div class="inquiry-row">
+                                    <div class="inquiry-group">
+                                        <label for="apartment-checkin2">Anreise</label>
+                                        <input type="date" id="apartment-checkin2" name="checkin" required>
+                                    </div>
+                                    <div class="inquiry-group">
+                                        <label for="apartment-checkout2">Abreise</label>
+                                        <input type="date" id="apartment-checkout2" name="checkout" required>
+                                    </div>
+                                    <div class="inquiry-group">
+                                        <label for="apartment-guests2">Gäste</label>
+                                        <select id="apartment-guests2" name="guests" required>
+                                            <option value="">Anzahl</option>
+                                            <option value="1">1 Person</option>
+                                            <option value="2">2 Personen</option>
+                                            <option value="3">3 Personen</option>
+                                            <option value="4">4 Personen</option>
+                                            <option value="5">5 Personen</option>
+                                            <option value="6">6 Personen</option>
+                                            <option value="7">7 Personen</option>
+                                            <option value="8">8 Personen</option>
+                                            <option value="9">9 Personen</option>
+                                            <option value="10">10 Personen</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="inquiry-group">
+                                    <label for="apartment-comment2">Zusätzliche Anmerkungen</label>
+                                    <textarea id="apartment-comment2" name="comment" placeholder="Besondere Wünsche, Fragen oder Anmerkungen..."></textarea>
+                                </div>
+                                <div class="inquiry-buttons">
+                                    <button type="submit" class="inquiry-btn email-btn">📧 Per E-Mail anfragen</button>
+                                    <button type="button" class="inquiry-btn whatsapp-btn" onclick="sendApartmentWhatsApp2()">💬 WhatsApp Anfrage</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Google Maps section (initially hidden) -->
+                        <div class="apartment-section" id="apartment-maps-section2" style="display: none;">
+                            <div class="location-map">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d314.62594996371746!2d10.0109109!3d50.8865697!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a359003f30e887%3A0xef18933c7f7df17e!2sMonteurzimmer%20Monteurwohnung%20Cosima%20J%C3%A4hn%20-%20Heringen%20Philippsthal%20Berka%20Wildeck%20Friedewald!5e0!3m2!1sde!2sde!4v1755720277324!5m2!1sde!2sde&z=12"
+                                    width="100%" 
+                                    height="300" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                                <div class="map-info">
+                                    <p><strong>📍 Adresse:</strong> August-Vilmar-Straße 20, 36266 Heringen (Werra)</p>
+                                    <a href="https://maps.app.goo.gl/dUnEMCLdLApUH8k76" target="_blank" class="map-link">
+                                        🗺️ In Google Maps öffnen
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3479,6 +3743,155 @@ Diese Anfrage wurde über die Website gesendet.
                 clickedSection.classList.add('collapsed');
                 clickedIcon.style.transform = 'rotate(0deg)';
             }
+        }
+
+        // Functions for second apartment
+        function toggleApartmentInquiry2() {
+            const inquirySection = document.getElementById('apartment-inquiry-section2');
+            const mapsSection = document.getElementById('apartment-maps-section2');
+            const inquiryToggle = document.getElementById('inquiry-toggle2');
+            const mapsToggle = document.getElementById('maps-toggle2');
+            
+            if (inquirySection.style.display === 'none') {
+                inquirySection.style.display = 'block';
+                mapsSection.style.display = 'none';
+                inquiryToggle.textContent = '▲';
+                mapsToggle.textContent = '▼';
+            } else {
+                inquirySection.style.display = 'none';
+                inquiryToggle.textContent = '▼';
+            }
+        }
+
+        function toggleApartmentMaps2() {
+            const inquirySection = document.getElementById('apartment-inquiry-section2');
+            const mapsSection = document.getElementById('apartment-maps-section2');
+            const inquiryToggle = document.getElementById('inquiry-toggle2');
+            const mapsToggle = document.getElementById('maps-toggle2');
+            
+            if (mapsSection.style.display === 'none') {
+                mapsSection.style.display = 'block';
+                inquirySection.style.display = 'none';
+                mapsToggle.textContent = '▲';
+                inquiryToggle.textContent = '▼';
+            } else {
+                mapsSection.style.display = 'none';
+                mapsToggle.textContent = '▼';
+            }
+        }
+
+        function submitApartmentInquiry2(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Calculate number of nights
+            const checkin = new Date(data.checkin);
+            const checkout = new Date(data.checkout);
+            const nights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
+            
+                         // Format email content for second apartment
+             const subject = `SPEZIFISCHE ANFRAGE - Zweite Monteurswohnung Heringen`;
+             const body = `
+SPEZIFISCHE ANFRAGE FÜR DIESE UNTERKUNFT
+
+UNTERKUNFT:
+Zweite Monteurswohnung Heringen
+August-Vilmar-Straße 20, 36266 Heringen (Werra)
+Preis: ab 25€ pro Person/Nacht
+
+HINWEIS: Diese Anfrage bezieht sich spezifisch auf die zweite Monteurswohnung in Heringen.
+
+ANFRAGEDETAILS:
+Anreise: ${formatDate(data.checkin)}
+Abreise: ${formatDate(data.checkout)}
+Anzahl Nächte: ${nights}
+Gäste: ${data.guests} Person${data.guests > 1 ? 'en' : ''}
+
+ZUSÄTZLICHE ANMERKUNGEN:
+${data.comment || 'Keine besonderen Wünsche'}
+
+---
+Diese Anfrage wurde über die Website gesendet.
+             `.trim();
+            
+            // Create mailto link
+            const mailtoLink = `mailto:cosimajaehn@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation
+            alert('Ihre Anfrage für die zweite Monteurswohnung wird in Ihrem E-Mail-Programm geöffnet. Bitte senden Sie die E-Mail ab, um die Anfrage zu übermitteln.');
+        }
+
+        function sendApartmentWhatsApp2() {
+            const checkin = document.getElementById('apartment-checkin2').value;
+            const checkout = document.getElementById('apartment-checkout2').value;
+            const guests = document.getElementById('apartment-guests2').value;
+            const comment = document.getElementById('apartment-comment2').value;
+            
+            if (!checkin || !checkout || !guests) {
+                alert('Bitte füllen Sie alle Felder aus.');
+                return;
+            }
+            
+            // Calculate number of nights
+            const checkinDate = new Date(checkin);
+            const checkoutDate = new Date(checkout);
+            const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
+            
+                         let message = `Hallo! Ich sende eine SPEZIFISCHE ANFRAGE für die zweite Monteurswohnung:
+
+🏠 UNTERKUNFT: Zweite Monteurswohnung Heringen
+📍 Adresse: August-Vilmar-Straße 20, 36266 Heringen (Werra)
+💰 Preis: ab 25€/Nacht/Person
+
+📅 Anreise: ${formatDate(checkin)}
+📅 Abreise: ${formatDate(checkout)}
+🌙 Anzahl Nächte: ${nights}
+👥 Gäste: ${guests} Person${guests > 1 ? 'en' : ''}`;
+            
+            if (comment) {
+                message += `\n\n💬 Zusätzliche Anmerkungen:\n${comment}`;
+            }
+            
+                         message += `\n\n💡 WICHTIG: Diese Anfrage bezieht sich spezifisch auf die zweite Monteurswohnung in Heringen!\n\n🎯 Ich interessiere mich für diese konkrete Unterkunft.`;
+            
+            const whatsappLink = `https://wa.me/4917630167602?text=${encodeURIComponent(message)}`;
+            window.open(whatsappLink, '_blank');
+        }
+
+        // Carousel functions for second apartment
+        let currentSlideIndex2 = 0;
+
+        function changeSlide2(direction) {
+            const secondApartment = document.querySelector('#apartment-maps-section2').closest('.accommodation-card');
+            const slides = secondApartment.querySelectorAll('.carousel-slide');
+            const indicators = secondApartment.querySelectorAll('.indicator');
+            
+            slides[currentSlideIndex2].classList.remove('active');
+            indicators[currentSlideIndex2].classList.remove('active');
+            
+            currentSlideIndex2 = (currentSlideIndex2 + direction + slides.length) % slides.length;
+            
+            slides[currentSlideIndex2].classList.add('active');
+            indicators[currentSlideIndex2].classList.add('active');
+        }
+
+        function currentSlide2(slideNumber) {
+            const secondApartment = document.querySelector('#apartment-maps-section2').closest('.accommodation-card');
+            const slides = secondApartment.querySelectorAll('.carousel-slide');
+            const indicators = secondApartment.querySelectorAll('.indicator');
+            
+            slides[currentSlideIndex2].classList.remove('active');
+            indicators[currentSlideIndex2].classList.remove('active');
+            
+            currentSlideIndex2 = slideNumber - 1;
+            
+            slides[currentSlideIndex2].classList.add('active');
+            indicators[currentSlideIndex2].classList.add('active');
         }
     </script>
 </body>
