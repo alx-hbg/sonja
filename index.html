@@ -82,7 +82,7 @@
         .hero {
             background: linear-gradient(135deg, #00d4aa 0%, #00a699 100%);
             color: white;
-            padding: 140px 16px 200px;
+            padding: 120px 16px 160px;
             text-align: center;
             width: 100%;
             overflow: visible;
@@ -105,7 +105,7 @@
 
         @media (min-width: 768px) {
             .hero {
-                padding: 160px 16px 180px;
+                padding: 140px 16px 160px;
             }
         }
 
@@ -197,7 +197,7 @@
         /* Features */
         .features {
             background: white;
-            padding: 6rem 0;
+            padding: 4rem 0;
             margin-top: 0;
         }
 
@@ -490,7 +490,7 @@
         }
 
         .contact-details .contact-icon {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             flex-shrink: 0;
             background: none;
             border-radius: 0;
@@ -562,7 +562,7 @@
         /* Accommodations */
         .accommodations {
             background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
-            padding: 7rem 0 4rem;
+            padding: 5rem 0 3rem;
         }
 
         .accommodation-grid {
@@ -585,11 +585,11 @@
 
         @media (max-width: 767px) {
             .accommodations {
-                padding: 3rem 0 3rem;
+                padding: 2rem 0 2rem;
             }
             
             .accommodation-grid {
-                padding: 2rem 8px;
+                padding: 1.5rem 8px;
             }
         }
 
@@ -960,7 +960,7 @@
         .contact {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             color: #222;
-            padding: 2rem 0 6rem;
+            padding: 2rem 0 4rem;
         }
 
         .contact-grid {
@@ -1579,7 +1579,7 @@
 
         @media (max-width: 767px) {
             section {
-                padding: 35px 0;
+                padding: 25px 0;
             }
         }
 
@@ -2163,6 +2163,10 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         .hero-inquiry-form .inquiry-btn:hover {
@@ -2203,9 +2207,10 @@
             }
             
             .hero-inquiry-form {
-                margin: 1.5rem 8px 5rem;
+                margin: 1.5rem 4px 5rem;
                 padding: 2rem 1.5rem;
                 border-radius: 20px;
+                width: calc(100% - 8px);
             }
 
             .hero-inquiry-form h3 {
