@@ -82,24 +82,30 @@
         .hero {
             background: linear-gradient(135deg, #00d4aa 0%, #00a699 100%);
             color: white;
-            padding: 140px 16px 220px;
+            padding: 140px 16px 180px;
             text-align: center;
             width: 100%;
-            overflow: visible;
+            overflow: hidden;
             position: relative;
-            /* Ensure no scroll bars */
-            scrollbar-width: none;
-            -ms-overflow-style: none;
         }
 
-        /* Hide scrollbar for webkit browsers */
-        .hero::-webkit-scrollbar {
-            display: none;
+        /* Ensure turquoise background extends to cover shadow */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(135deg, #00d4aa 0%, #00a699 100%);
+            z-index: -1;
         }
+
+
 
         @media (min-width: 768px) {
             .hero {
-                padding: 160px 16px 220px;
+                padding: 160px 16px 160px;
             }
         }
 
@@ -190,7 +196,9 @@
 
         /* Features */
         .features {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: white;
+            padding: 4rem 0;
+            margin-top: -2rem;
         }
 
 
@@ -330,21 +338,35 @@
             .apartment-section {
                 padding: 1.5rem;
             }
+
+            /* Remove padding for maps section on mobile to allow full edge-to-edge display */
+            #apartment-maps-section {
+                padding: 0;
+            }
         }
 
         /* Simplified Contact Section */
         .contact-simple {
             max-width: 800px;
             margin: 0 auto;
-            text-align: center;
+            display: flex;
+            align-items: stretch;
+            gap: 3rem;
+            text-align: left;
         }
 
         .contact-host-info {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 2rem;
+            padding: 2rem 2rem;
             border-radius: 16px;
-            margin-bottom: 2rem;
+            margin-bottom: 0;
             border: 2px solid #f0f0f0;
+            flex: 1.5;
+            min-height: calc(8rem + 2rem);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .contact-host-info h3 {
@@ -363,43 +385,112 @@
 
         .contact-details {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 1.5rem;
+            flex-shrink: 0;
+            flex: 0.5;
+            justify-content: space-between;
         }
 
-        .contact-details p {
-            font-size: 1.2rem;
-            color: #333;
-            margin: 0;
-            padding: 0.5rem 1rem;
+        .contact-details .contact-button {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+            min-width: 200px;
+            text-decoration: none;
+            justify-content: center;
+            height: 5rem;
+            box-sizing: border-box;
+        }
+
+        .contact-details .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-details .contact-button.phone-btn:hover {
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.2);
+        }
+
+        .contact-details .contact-button.email-btn:hover {
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.2);
+        }
+
+        .contact-details .contact-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+            background: none;
+            border-radius: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contact-details .contact-text {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 600;
+            word-break: break-word;
         }
 
         @media (max-width: 719px) {
-            .contact-details {
+            .contact-simple {
                 flex-direction: column;
-                gap: 1rem;
-                align-items: center;
+                text-align: center;
+                gap: 2rem;
             }
             
-            .contact-details p {
-                width: 100%;
-                max-width: 400px;
+            .contact-details {
+                flex-direction: row;
+                gap: 1rem;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .contact-details .contact-button {
+                width: auto;
+                max-width: none;
+                padding: 1rem 1.5rem;
+                gap: 0.8rem;
+                min-width: 180px;
+                height: 4.5rem;
+            }
+            
+            .contact-details .contact-icon {
+                font-size: 2rem;
+            }
+            
+            .contact-details .contact-text {
+                font-size: 1rem;
             }
             
             .contact-host-info {
                 padding: 1.5rem;
+                height: auto;
+                min-height: calc(6rem + 1rem);
+            }
+
+            .contact-host-info h3 {
+                font-size: 1.5rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .contact-host-info p {
+                font-size: 1rem;
+                line-height: 1.6;
+                padding: 0 0.5rem;
             }
         }
 
         /* Accommodations */
         .accommodations {
             background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
-            padding: 4rem 0;
+            padding: 7rem 0;
         }
 
         .accommodation-grid {
@@ -408,7 +499,7 @@
             grid-template-columns: 1fr;
             max-width: 800px;
             margin: 0 auto;
-            padding: 2rem 0;
+            padding: 4rem 0;
         }
 
         @media (min-width: 720px) {
@@ -426,7 +517,7 @@
             border: 3px solid #f0f0f0;
             position: relative;
             z-index: 1;
-            margin: 2rem 0;
+            margin: 3rem 0;
         }
 
         .accommodation-card:hover {
@@ -706,6 +797,15 @@
             border: 1px solid #f0f0f0;
         }
 
+        /* Mobile maps section - edge to edge */
+        @media (max-width: 767px) {
+            #apartment-maps-section .location-map {
+                margin: 0;
+                border-radius: 0;
+                border: none;
+            }
+        }
+
                  .location-map iframe {
              width: 100%;
              height: 300px;
@@ -748,6 +848,7 @@
         .contact {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             color: #222;
+            padding: 2rem 0 6rem;
         }
 
         .contact-grid {
@@ -787,6 +888,9 @@
             justify-content: center;
             font-size: 1.5rem;
             flex-shrink: 0;
+            background: none;
+            border-radius: 0;
+            color: #333;
         }
 
         .quick-contact {
@@ -931,10 +1035,10 @@
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            background: linear-gradient(135deg, #00a699, #00d4aa);
-            border-radius: 50%;
-            color: white;
-            box-shadow: 0 4px 15px rgba(0, 166, 153, 0.3);
+            background: none;
+            border-radius: 0;
+            color: #333;
+            box-shadow: none;
         }
 
         .quick-contact {
@@ -990,7 +1094,7 @@
         .footer-content {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 0;
             margin-bottom: 2rem;
             max-width: 980px;
             margin: 0 auto 2rem;
@@ -998,7 +1102,7 @@
 
         @media (min-width: 720px) {
             .footer-content {
-                gap: 1.5rem;
+                gap: 0;
             }
         }
 
@@ -1018,20 +1122,28 @@
             color: #d4c5b9;
         }
 
-        /* Legal buttons and sections - fixed position */
+        /* Legal buttons and sections - absolutely fixed position */
         .legal-buttons {
             display: flex;
             justify-content: center;
             gap: 0.5rem;
-            margin: 0.5rem 0 1rem 0;
+            margin: 0;
             flex-wrap: wrap;
-            position: relative;
+            position: sticky;
+            top: 0;
+            background: #222;
+            padding: 1rem 0;
             z-index: 10;
+            border-bottom: 1px solid #333;
+            /* Ensure buttons stay in place */
+            transform: translateZ(0);
         }
 
         .legal-content {
-            margin-top: 0.5rem;
+            margin-top: 0;
             position: relative;
+            /* Ensure content expands below buttons without affecting their position */
+            padding-top: 0.5rem;
         }
 
         .legal-btn {
@@ -1323,14 +1435,20 @@
 
         /* Ensure all sections respect container width */
         section {
-            padding: 60px 0;
+            padding: 40px 0;
             width: 100%;
             overflow-x: hidden;
         }
 
         @media (min-width: 768px) {
             section {
-                padding: 80px 0;
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            section {
+                padding: 35px 0;
             }
         }
 
@@ -1454,11 +1572,18 @@
         /* Mobile-optimized accommodation section */
         .accommodation-grid {
             display: grid;
-            gap: 1.5rem;
+            gap: 2rem;
             grid-template-columns: 1fr;
             max-width: 100%;
             margin: 0 auto;
-            padding: 1rem 8px;
+            padding: 4rem 8px;
+        }
+
+        /* Mobile accommodation section padding */
+        @media (max-width: 767px) {
+            .accommodations {
+                padding: 5rem 0;
+            }
         }
 
         @media (min-width: 768px) {
@@ -1554,15 +1679,20 @@
             }
 
             .location-map {
-                margin: 0.8rem 0;
+                margin: 0;
+                border-radius: 0;
+                border: none;
             }
 
             .location-map iframe {
-                height: 200px;
+                height: 250px;
+                border-radius: 0;
             }
 
             .map-info {
                 padding: 0.8rem;
+                border-radius: 0;
+                border: none;
             }
 
             .map-info p {
@@ -1659,9 +1789,9 @@
 
         /* Mobile-optimized footer */
         .footer-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
             margin-bottom: 2rem;
             max-width: 100%;
             margin: 0 auto 2rem;
@@ -1672,8 +1802,7 @@
             .footer-content {
                 max-width: 980px;
                 padding: 0;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 2rem;
+                gap: 0;
             }
         }
 
@@ -1697,15 +1826,17 @@
             
             .hero p {
                 padding: 0 4px;
+                line-height: 1.8;
             }
             
             .hero-highlight {
-                display: inline;
-                background: none;
-                border: none;
-                padding: 0;
-                margin: 0 0.3rem;
+                display: inline-block;
+                background: rgba(255, 255, 255, 0.2);
+                border: 2px solid rgba(255, 255, 255, 0.3);
+                padding: 0.4rem 0.8rem;
+                margin: 0 0.3rem 0.5rem;
                 font-weight: 700;
+                border-radius: 20px;
             }
             
             .cta-button {
@@ -1714,10 +1845,8 @@
                 max-width: none;
             }
             
-
-            
             .accommodation-card {
-                margin: 0.5rem 4px;
+                margin: 1rem 0;
             }
             
             .contact-item {
@@ -1730,6 +1859,14 @@
                 height: 40px;
                 font-size: 1.5rem;
                 margin-right: 1rem;
+                background: none;
+                border-radius: 0;
+                color: #333;
+            }
+
+            /* Ensure shadows can extend to screen edges */
+            .container {
+                padding: 0 4px;
             }
         }
 
@@ -1745,12 +1882,12 @@
             padding: 3rem;
             border-radius: 25px;
             border: 4px solid #ff6b9d;
-            margin: 3rem auto 2rem;
+            margin: 3rem auto 3.5rem;
             backdrop-filter: blur(20px);
             max-width: 750px;
             position: relative;
             z-index: 10;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 25px 160px rgba(0, 0, 0, 0.5);
             transition: all 0.3s ease;
             /* Ensure shadow is fully visible */
             transform: translateZ(0);
@@ -1819,6 +1956,18 @@
             font-weight: 700;
             text-align: center;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            min-height: 3.5rem;
+            box-sizing: border-box;
+            /* Ensure select text is visible */
+            line-height: 1.2;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232c3e50' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1rem;
+            padding-right: 3rem;
         }
 
         .hero-inquiry-form .inquiry-group input:focus,
@@ -1849,13 +1998,14 @@
 
         .hero-inquiry-form .inquiry-buttons {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             gap: 1.5rem;
         }
 
-        @media (min-width: 600px) {
+        @media (max-width: 599px) {
             .hero-inquiry-form .inquiry-buttons {
-                flex-direction: row;
+                flex-direction: column;
+                gap: 1rem;
             }
         }
 
@@ -1909,11 +2059,11 @@
         /* Mobile-specific hero inquiry form */
         @media (max-width: 767px) {
             .hero {
-                padding: 100px 16px 140px;
+                padding: 100px 16px 160px;
             }
             
             .hero-inquiry-form {
-                margin: 1.5rem 8px 2rem;
+                margin: 1.5rem 8px 4rem;
                 padding: 2rem 1.5rem;
                 border-radius: 20px;
             }
@@ -1932,6 +2082,8 @@
             .hero-inquiry-form .inquiry-group select {
                 padding: 1rem;
                 font-size: 1.1rem;
+                min-height: 3rem;
+                box-sizing: border-box;
             }
 
             .hero-inquiry-form .inquiry-btn {
@@ -2004,6 +2156,8 @@
             color: #2c3e50;
             font-weight: 500;
             text-align: center;
+            min-height: 2.8rem;
+            box-sizing: border-box;
         }
 
         .simple-apartment-form .inquiry-group input:focus,
@@ -2108,13 +2262,14 @@
 
         .simple-apartment-form .inquiry-buttons {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             gap: 1rem;
         }
 
-        @media (min-width: 600px) {
+        @media (max-width: 599px) {
             .simple-apartment-form .inquiry-buttons {
-                flex-direction: row;
+                flex-direction: column;
+                gap: 0.8rem;
             }
         }
 
@@ -2179,6 +2334,8 @@
             .simple-apartment-form .inquiry-group select {
                 padding: 0.7rem;
                 font-size: 0.9rem;
+                min-height: 2.5rem;
+                box-sizing: border-box;
             }
 
             .simple-apartment-form .inquiry-btn {
@@ -2503,10 +2660,15 @@
                 </div>
                 
                 <div class="contact-details">
-                    <p>📱 +49 176 30167602</p>
-                    <p>✉️ kontakt@monteurswohnungen-werra.de</p>
-                    <p>📍 Werra-Meißner-Kreis, Hessen</p>
-                    </div>
+                    <a href="tel:+4917630167602" class="contact-button phone-btn">
+                        <span class="contact-icon">📞</span>
+                        <span class="contact-text">Jetzt anrufen</span>
+                    </a>
+                    <a href="mailto:kontakt@monteurswohnungen-werra.de" class="contact-button email-btn">
+                        <span class="contact-icon">✉️</span>
+                        <span class="contact-text">E-Mail senden</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
