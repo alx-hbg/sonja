@@ -82,8 +82,17 @@
         .hero {
             background: linear-gradient(135deg, #00d4aa 0%, #00a699 100%);
             color: white;
-            padding: 100px 16px 80px;
+            padding: 140px 16px 120px;
             text-align: center;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 160px 16px 140px;
+            }
         }
 
         .hero h1 {
@@ -207,17 +216,17 @@
         }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #00a699, #00d4aa);
-            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            background: none;
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1.5rem;
-            font-size: 2.5rem;
-            color: white;
-            box-shadow: 0 4px 15px rgba(0, 166, 153, 0.3);
+            font-size: 4.5rem;
+            color: #00a699;
+            box-shadow: none;
         }
 
         .feature-card h3 {
@@ -303,6 +312,8 @@
             height: 100%;
             object-fit: cover;
             border-radius: 20px 20px 0 0;
+            margin: 0;
+            padding: 0;
         }
 
         .placeholder-image {
@@ -358,10 +369,10 @@
         /* Mobile optimization for carousel buttons */
         @media (max-width: 768px) {
             .carousel-btn {
-                width: 52px;
-                height: 52px;
-                font-size: 1.6rem;
-                padding: 1rem;
+                width: 44px;
+                height: 44px;
+                font-size: 1.4rem;
+                padding: 0.8rem;
             }
             
             .carousel-btn.prev {
@@ -372,10 +383,20 @@
                 right: 0.5rem;
             }
 
+            .carousel-indicators {
+                bottom: 1rem;
+                gap: 0.6rem;
+            }
+
+            .indicator {
+                width: 12px;
+                height: 12px;
+            }
+
             .feature-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 2.2rem;
+                width: 110px;
+                height: 110px;
+                font-size: 4rem;
             }
 
             .price {
@@ -451,6 +472,60 @@
             position: absolute;
             left: 0;
             font-size: 1.2rem;
+        }
+
+        /* New accommodation header with integrated price */
+        .accommodation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .accommodation-title {
+            font-size: 1.6rem;
+            margin-bottom: 0;
+            color: #222;
+            font-weight: 700;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .accommodation-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff6b9d;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        /* New feature boxes grid */
+        .accommodation-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-box {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-box:hover {
+            background: #e9ecef;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .price {
@@ -1075,21 +1150,7 @@
             }
         }
 
-        /* Mobile-optimized hero section */
-        .hero {
-            background: linear-gradient(135deg, #00d4aa 0%, #00a699 100%);
-            color: white;
-            padding: 140px 16px 80px;
-            text-align: center;
-            width: 100%;
-            overflow-x: hidden;
-        }
 
-        @media (min-width: 768px) {
-            .hero {
-                padding: 160px 16px 100px;
-            }
-        }
 
         .hero h1 {
             font-size: clamp(2rem, 6vw, 3.5rem);
@@ -1213,7 +1274,7 @@
         /* Mobile-optimized photo carousel */
         .photo-carousel {
             position: relative;
-            height: 300px;
+            height: 200px;
             overflow: hidden;
             border-radius: 20px 20px 0 0;
             width: 100%;
@@ -1227,12 +1288,79 @@
 
         /* Mobile-optimized accommodation content */
         .accommodation-content {
-            padding: 1.5rem;
+            padding: 1rem;
         }
 
         @media (min-width: 768px) {
             .accommodation-content {
                 padding: 2rem;
+            }
+        }
+
+        /* Mobile-optimized accommodation features */
+        @media (max-width: 767px) {
+            .accommodation-header {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+                gap: 0.8rem;
+            }
+
+            .accommodation-title {
+                font-size: 1.4rem;
+                margin-bottom: 0;
+                min-width: auto;
+            }
+
+            .accommodation-price {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            .accommodation-features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.6rem;
+                margin: 1rem 0;
+            }
+
+            .feature-box {
+                padding: 0.6rem;
+                font-size: 0.8rem;
+                border-width: 1px;
+            }
+
+            .accommodation-content p {
+                font-size: 0.95rem;
+                line-height: 1.4;
+                margin-bottom: 1rem;
+            }
+
+            .book-now-btn {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+                margin-top: 1rem;
+            }
+
+            .location-map {
+                margin: 0.8rem 0;
+            }
+
+            .location-map iframe {
+                height: 200px;
+            }
+
+            .map-info {
+                padding: 0.8rem;
+            }
+
+            .map-info p {
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .map-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
             }
         }
 
@@ -1391,6 +1519,186 @@
             max-width: 100vw;
             overflow-x: hidden;
         }
+
+        /* Hero Inquiry Form */
+        .hero-inquiry-form {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%);
+            padding: 3rem;
+            border-radius: 25px;
+            border: 4px solid #ff6b9d;
+            margin: 3rem auto 0;
+            backdrop-filter: blur(20px);
+            max-width: 750px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 107, 157, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .hero-inquiry-form:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.25) 100%);
+            border-color: #ff4d8d;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(255, 107, 157, 0.4);
+        }
+
+        .hero-inquiry-form h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            color: white;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+            position: relative;
+            letter-spacing: 1px;
+        }
+
+        .hero-inquiry-form .simple-inquiry-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .hero-inquiry-form .inquiry-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 600px) {
+            .hero-inquiry-form .inquiry-row {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .hero-inquiry-form .inquiry-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-inquiry-form .inquiry-group label {
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .hero-inquiry-form .inquiry-group input,
+        .hero-inquiry-form .inquiry-group select {
+            padding: 1.2rem;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            border-radius: 15px;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.95);
+            color: #2c3e50;
+            font-weight: 700;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-inquiry-form .inquiry-group input:focus,
+        .hero-inquiry-form .inquiry-group select:focus {
+            outline: none;
+            border-color: white;
+            background: white;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.4);
+        }
+
+        .hero-inquiry-form .inquiry-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 600px) {
+            .hero-inquiry-form .inquiry-buttons {
+                flex-direction: row;
+            }
+        }
+
+        .hero-inquiry-form .inquiry-btn {
+            padding: 1.5rem 2.5rem;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-inquiry-form .inquiry-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-inquiry-form .email-btn {
+            background: linear-gradient(135deg, #ff6b9d, #ff4d8d);
+            color: white;
+            border: 4px solid #ff4d8d;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.6);
+        }
+
+        .hero-inquiry-form .email-btn:hover {
+            background: linear-gradient(135deg, #ff4d8d, #ff2d7d);
+            border-color: #ff2d7d;
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.8);
+        }
+
+        .hero-inquiry-form .whatsapp-btn {
+            background: linear-gradient(135deg, #25d366, #00ff88);
+            color: white;
+            border: 4px solid #25d366;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .hero-inquiry-form .whatsapp-btn:hover {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            border-color: #00ff88;
+            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.8);
+        }
+
+        /* Mobile-specific hero inquiry form */
+        @media (max-width: 767px) {
+            .hero-inquiry-form {
+                margin: 2rem 8px 0;
+                padding: 2.5rem 1.5rem;
+                border-radius: 20px;
+            }
+
+            .hero-inquiry-form h3 {
+                font-size: 1.6rem;
+                margin-bottom: 2rem;
+                letter-spacing: 1px;
+            }
+
+            .hero-inquiry-form .inquiry-row {
+                gap: 1.5rem;
+            }
+
+            .hero-inquiry-form .inquiry-group input,
+            .hero-inquiry-form .inquiry-group select {
+                padding: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .hero-inquiry-form .inquiry-btn {
+                padding: 1.2rem 2rem;
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1408,11 +1716,36 @@
     <section class="hero">
         <div class="container">
             <h1>🏠 Monteurzimmer in Heringen</h1>
-            <p>Vollausgestattete 2-Zimmer-Wohnung • <span class="hero-highlight">Top Service</span> • <span class="hero-highlight">Ab 25€/Nacht</span></p>
-            <a href="#" class="cta-button" onclick="openBookingModal('heringen')">🔍 Verfügbarkeit prüfen</a>
-            <a href="https://wa.me/4917630167602?text=Hallo,%20ich%20interessiere%20mich%20für%20eine%20Monteurswohnung%20in%20Heringen" class="cta-button whatsapp-hero">
-                💬 WhatsApp Nachricht
-            </a>
+            <p><span class="hero-highlight">Top Service</span> <span class="hero-highlight">Ab 25€/Nacht</span> <span class="hero-highlight">Kostenloses WLAN</span> <span class="hero-highlight">Vollküche</span></p>
+            
+            <!-- Embedded Availability Inquiry Form -->
+            <div class="hero-inquiry-form">
+                <h3>📅 Unkompliziert anfragen</h3>
+                <form class="simple-inquiry-form" onsubmit="submitInquiry(event)">
+                    <div class="inquiry-row">
+                        <div class="inquiry-group">
+                            <label for="inquiry-checkin">Anreise</label>
+                            <input type="date" id="inquiry-checkin" name="checkin" required>
+                        </div>
+                        <div class="inquiry-group">
+                            <label for="inquiry-checkout">Abreise</label>
+                            <input type="date" id="inquiry-checkout" name="checkout" required>
+                        </div>
+                        <div class="inquiry-group">
+                            <label for="inquiry-guests">Gäste</label>
+                            <select id="inquiry-guests" name="guests" required>
+                                <option value="">Anzahl</option>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 Personen</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="inquiry-buttons">
+                        <button type="submit" class="inquiry-btn email-btn">📧 Per E-Mail anfragen</button>
+                        <button type="button" class="inquiry-btn whatsapp-btn" onclick="sendWhatsAppInquiry()">💬 WhatsApp Anfrage</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -1458,7 +1791,7 @@
     <!-- Accommodations Section -->
     <section class="accommodations">
         <div class="container">
-            <h2 class="section-title">Unser Monteurzimmer in Heringen</h2>
+                         <h2 class="section-title">Unsere Monteurzimmer in Heringen</h2>
             <div class="accommodation-grid">
                 <!-- Heringen Wohnung -->
                 <div class="accommodation-card fade-in">
@@ -1511,23 +1844,27 @@
                         </div>
                     </div>
                     
-                    <div class="accommodation-content">
-                        <h3 class="accommodation-title">2-Zimmer-Monteurzimmer Heringen</h3>
-                        <p>Moderne, vollausgestattete Unterkunft im Zentrum von Heringen (Werra). Ideal für 1-2 Monteure oder Handwerker.</p>
-                        <ul class="accommodation-features">
-                            <li>50m² Wohnfläche</li>
-                            <li>Separates Schlafzimmer</li>
-                            <li>Vollküche mit Geschirrspüler</li>
-                            <li>Balkon mit Blick ins Grüne</li>
-                            <li>Smart-TV 42"</li>
-                            <li>Eigener Parkplatz</li>
-                            <li>Kostenloses WLAN</li>
-                            <li>Waschmaschine</li>
-                        </ul>
-                        <div class="price">ab 25€ / Nacht / Person</div>
-                        <button class="book-now-btn" onclick="openBookingModal('heringen')">
-                            📅 Jetzt anfragen
-                        </button>
+                                         <div class="accommodation-content">
+                         <div class="accommodation-header">
+                             <h3 class="accommodation-title">5-10 Zimmer Monteurzimmer Heringen</h3>
+                             <div class="accommodation-price">ab 25€ / Nacht / Person</div>
+                         </div>
+                         <p>Großzügige Monteurunterkunft mit 5-10 Zimmern im Zentrum von Heringen (Werra). Ideal für größere Gruppen von Monteuren oder Handwerkern. Alle Zimmer sind mit Küche und Bad ausgestattet.</p>
+                         
+                         <div class="accommodation-features-grid">
+                             <div class="feature-box">5-10 Zimmer verfügbar</div>
+                             <div class="feature-box">Einzel- & 3-Bett Zimmer</div>
+                             <div class="feature-box">Vollküche mit Geschirrspüler</div>
+                             <div class="feature-box">Eigenes Bad pro Zimmer</div>
+                             <div class="feature-box">Smart-TV in jedem Zimmer</div>
+                             <div class="feature-box">Eigener Parkplatz pro Wohneinheit</div>
+                             <div class="feature-box">Kostenloses WLAN</div>
+                             <div class="feature-box">Waschmaschine verfügbar</div>
+                         </div>
+                         
+                                                   <button class="book-now-btn" onclick="openSpecificApartmentModal()">
+                              📅 Jetzt anfragen
+                          </button>
                                                  <div class="location-map">
                              <iframe 
                                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d314.62594996371746!2d10.0109109!3d50.8865697!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a359003f30e887%3A0xef18933c7f7df17e!2sMonteurzimmer%20Monteurwohnung%20Cosima%20J%C3%A4hn%20-%20Heringen%20Philippsthal%20Berka%20Wildeck%20Friedewald!5e0!3m2!1sde!2sde!4v1755720277324!5m2!1sde!2sde"
@@ -1693,15 +2030,15 @@
     </div>
 
     <script>
-        // Location data for booking form
-        const locations = {
-            heringen: {
-                name: "2-Zimmer-Monteurzimmer Heringen",
-                address: "August-Vilmar-Straße 20, 36266 Heringen (Werra)",
-                price: "25€",
-                maxPersons: 2
-            }
-        };
+                 // Location data for booking form
+         const locations = {
+             heringen: {
+                 name: "5-10 Zimmer Monteurzimmer Heringen",
+                 address: "August-Vilmar-Straße 20, 36266 Heringen (Werra)",
+                 price: "25€",
+                 maxPersons: 10
+             }
+         };
 
         // Open booking modal for specific location
         function openBookingModal(locationKey) {
@@ -1734,6 +2071,33 @@
             document.body.style.overflow = 'hidden';
         }
 
+        // Open specific apartment inquiry modal
+        function openSpecificApartmentModal() {
+            const modal = document.getElementById('bookingModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const selectedLocation = document.getElementById('selectedLocation');
+            const personsSelect = document.getElementById('persons');
+            
+            // Set specific apartment details
+            modalTitle.textContent = `Anfrage - 5-10 Zimmer Monteurzimmer Heringen`;
+            selectedLocation.value = 'heringen';
+            
+            // Update persons dropdown for this apartment
+            personsSelect.innerHTML = '<option value="">Bitte wählen</option>';
+            for (let i = 1; i <= 10; i++) {
+                personsSelect.innerHTML += `<option value="${i}">${i} Person${i > 1 ? 'en' : ''}</option>`;
+            }
+            personsSelect.innerHTML += '<option value="5+">5+ Personen</option>';
+            
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('checkin').min = today;
+            document.getElementById('checkout').min = today;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
         // Close booking modal
         function closeBookingModal() {
             const modal = document.getElementById('bookingModal');
@@ -1754,9 +2118,45 @@
             const checkout = new Date(data.checkout);
             const nights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
             
+            // Check if this is a specific apartment inquiry
+            const isSpecificApartment = data.location === 'heringen';
+            
             // Format email content
-            const subject = `Buchungsanfrage - ${location.name}`;
-            const body = `
+            let subject, body;
+            
+            if (isSpecificApartment) {
+                subject = `SPEZIFISCHE ANFRAGE - ${location.name}`;
+                body = `
+SPEZIFISCHE ANFRAGE FÜR DIESE UNTERKUNFT
+
+UNTERKUNFT:
+${location.name}
+${location.address}
+Preis: ab ${location.price} pro Person/Nacht
+
+HINWEIS: Diese Anfrage bezieht sich spezifisch auf die oben genannte Unterkunft in Heringen.
+
+BUCHUNGSDETAILS:
+Anreise: ${formatDate(data.checkin)}
+Abreise: ${formatDate(data.checkout)}
+Anzahl Nächte: ${nights}
+Personen: ${data.persons}
+Gewünschte Unterkunft: ${data.accommodation || 'Automatische Auswahl'}
+
+KONTAKTDATEN:
+Name: ${data.name}
+E-Mail: ${data.email}
+Telefon: ${data.phone || 'Nicht angegeben'}
+
+ZUSÄTZLICHE ANFORDERUNGEN:
+${data.message || 'Keine besonderen Wünsche'}
+
+---
+Diese Anfrage wurde über die Website gesendet.
+                `.trim();
+            } else {
+                subject = `Buchungsanfrage - ${location.name}`;
+                body = `
 Neue Buchungsanfrage
 
 UNTERKUNFT:
@@ -1781,7 +2181,8 @@ ${data.message || 'Keine besonderen Wünsche'}
 
 ---
 Diese Anfrage wurde über die Website gesendet.
-            `.trim();
+                `.trim();
+            }
             
             // Create mailto link
             const mailtoLink = `mailto:cosimajaehn@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -1922,6 +2323,143 @@ Diese Anfrage wurde über die Website gesendet.
         setInterval(() => {
             changeSlide(1);
         }, 5000);
+
+        // Allgemeine Anfrage Functions
+        function submitInquiry(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Calculate number of nights
+            const checkin = new Date(data.checkin);
+            const checkout = new Date(data.checkout);
+            const nights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
+            
+            // Format email content
+            const subject = `Unkompliziert anfragen - Monteurzimmer`;
+            const body = `
+UNKOMPLIZIERTE ALLGEMEINE ANFRAGE
+
+HINWEIS: Dies ist eine allgemeine Anfrage ohne spezifische Standortauswahl.
+
+UNTERKUNFT:
+Monteurzimmer (Standort wird basierend auf Verfügbarkeit und Ihren Wünschen vorgeschlagen)
+
+ANFRAGEDETAILS:
+Anreise: ${formatDate(data.checkin)}
+Abreise: ${formatDate(data.checkout)}
+Anzahl Nächte: ${nights}
+Gäste: ${data.guests} Person${data.guests > 1 ? 'en' : ''}
+
+BESONDERHEIT:
+Diese Anfrage ist bewusst unkompliziert gehalten - wir finden gemeinsam die beste Lösung für Sie!
+
+---
+Diese Anfrage wurde über die Website gesendet.
+            `.trim();
+            
+            // Create mailto link
+            const mailtoLink = `mailto:cosimajaehn@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation
+            alert('Ihre allgemeine Anfrage wird in Ihrem E-Mail-Programm geöffnet. Bitte senden Sie die E-Mail ab, um die Anfrage zu übermitteln.');
+        }
+
+        function sendWhatsAppInquiry() {
+            const checkin = document.getElementById('inquiry-checkin').value;
+            const checkout = document.getElementById('inquiry-checkout').value;
+            const guests = document.getElementById('inquiry-guests').value;
+            
+            if (!checkin || !checkout || !guests) {
+                alert('Bitte füllen Sie alle Felder aus.');
+                return;
+            }
+            
+            // Calculate number of nights
+            const checkinDate = new Date(checkin);
+            const checkoutDate = new Date(checkout);
+            const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
+            
+            const message = `Hallo! Ich sende eine UNKOMPLIZIERTE ALLGEMEINE ANFRAGE für Monteurzimmer:
+
+📅 Anreise: ${formatDate(checkin)}
+📅 Abreise: ${formatDate(checkout)}
+🌙 Anzahl Nächte: ${nights}
+👥 Gäste: ${guests} Person${guests > 1 ? 'en' : ''}
+
+💡 WICHTIG: Kein spezifischer Standort gewählt - Sie schlagen mir gerne die beste Option vor!
+
+🎯 Das ist bewusst unkompliziert - wir finden gemeinsam die perfekte Lösung!`;
+            
+            const whatsappLink = `https://wa.me/4917630167602?text=${encodeURIComponent(message)}`;
+            window.open(whatsappLink, '_blank');
+        }
+
+        // Function for specific apartment inquiries (from accommodation card)
+        function sendSpecificApartmentInquiry() {
+            const checkin = document.getElementById('inquiry-checkin').value;
+            const checkout = document.getElementById('inquiry-checkout').value;
+            const guests = document.getElementById('inquiry-guests').value;
+            
+            if (!checkin || !checkout || !guests) {
+                alert('Bitte füllen Sie alle Felder aus.');
+                return;
+            }
+            
+            // Calculate number of nights
+            const checkinDate = new Date(checkin);
+            const checkoutDate = new Date(checkout);
+            const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
+            
+            const message = `Hallo! Ich sende eine SPEZIFISCHE ANFRAGE für die Monteurzimmer in Heringen:
+
+🏠 UNTERKUNFT: 5-10 Zimmer Monteurzimmer Heringen
+📍 Adresse: August-Vilmar-Straße 20, 36266 Heringen (Werra)
+💰 Preis: ab 25€/Nacht/Person
+
+📅 Anreise: ${formatDate(checkin)}
+📅 Abreise: ${formatDate(checkout)}
+🌙 Anzahl Nächte: ${nights}
+👥 Gäste: ${guests} Person${guests > 1 ? 'en' : ''}
+
+💡 WICHTIG: Diese Anfrage bezieht sich spezifisch auf die Monteurzimmer in Heringen!
+
+🎯 Ich interessiere mich für diese konkrete Unterkunft.`;
+            
+            const whatsappLink = `https://wa.me/4917630167602?text=${encodeURIComponent(message)}`;
+            window.open(whatsappLink, '_blank');
+        }
+
+        // Set minimum dates for inquiry form
+        document.addEventListener('DOMContentLoaded', function() {
+            const inquiryCheckin = document.getElementById('inquiry-checkin');
+            const inquiryCheckout = document.getElementById('inquiry-checkout');
+            
+            if (inquiryCheckin && inquiryCheckout) {
+                // Set minimum date to today
+                const today = new Date().toISOString().split('T')[0];
+                inquiryCheckin.min = today;
+                inquiryCheckout.min = today;
+                
+                // Update checkout date when checkin changes
+                inquiryCheckin.addEventListener('change', function() {
+                    const checkinDate = new Date(this.value);
+                    const nextDay = new Date(checkinDate);
+                    nextDay.setDate(nextDay.getDate() + 1);
+                    
+                    inquiryCheckout.min = nextDay.toISOString().split('T')[0];
+                    
+                    // If checkout is before new minimum, update it
+                    if (inquiryCheckout.value && new Date(inquiryCheckout.value) <= checkinDate) {
+                        inquiryCheckout.value = nextDay.toISOString().split('T')[0];
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>
