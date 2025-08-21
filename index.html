@@ -82,16 +82,24 @@
         .hero {
             background: linear-gradient(135deg, #00d4aa 0%, #00a699 100%);
             color: white;
-            padding: 140px 16px 120px;
+            padding: 140px 16px 220px;
             text-align: center;
             width: 100%;
-            overflow: hidden;
+            overflow: visible;
             position: relative;
+            /* Ensure no scroll bars */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        /* Hide scrollbar for webkit browsers */
+        .hero::-webkit-scrollbar {
+            display: none;
         }
 
         @media (min-width: 768px) {
             .hero {
-                padding: 160px 16px 140px;
+                padding: 160px 16px 220px;
             }
         }
 
@@ -185,74 +193,222 @@
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
 
-        .features-grid {
-            display: grid;
-            gap: 1.5rem;
-            grid-template-columns: 1fr;
-            max-width: 980px;
+
+
+
+
+        /* Simplified Features Section */
+        .features-simple {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        @media (min-width: 720px) {
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 16px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 3px solid #f0f0f0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: #00a699;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .feature-icon {
-            width: 120px;
-            height: 120px;
-            background: none;
-            border-radius: 0;
+        .feature-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 4.5rem;
+            gap: 0.8rem;
+            padding: 1rem 1.5rem;
+            background: white;
+            border-radius: 12px;
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-item:hover {
+            border-color: #00a699;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 166, 153, 0.15);
+        }
+
+        .feature-item .feature-icon {
+            width: auto;
+            height: auto;
+            background: none;
+            border-radius: 0;
+            margin: 0;
+            font-size: 2rem;
             color: #00a699;
             box-shadow: none;
         }
 
-        .feature-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
+        .feature-item .feature-text {
+            font-size: 1.1rem;
+            font-weight: 600;
             color: #222;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 719px) {
+            .features-simple {
+                flex-direction: column;
+            align-items: center;
+                gap: 1rem;
+            }
+            
+            .feature-item {
+                width: 100%;
+                max-width: 400px;
+            justify-content: center;
+            }
+        }
+
+        /* Apartment Action Buttons */
+        .apartment-actions {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .action-btn {
+            flex: 1;
+            background: linear-gradient(135deg, #00a699, #00d4aa);
+            color: white;
+            border: none;
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 166, 153, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .action-btn:hover {
+            background: linear-gradient(135deg, #008f85, #00a699);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 166, 153, 0.4);
+        }
+
+        /* Pink styling for inquiry button */
+        .inquiry-btn-toggle {
+            background: linear-gradient(135deg, #ff6b9d, #ff4d8d) !important;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3) !important;
+        }
+
+        .inquiry-btn-toggle:hover {
+            background: linear-gradient(135deg, #ff4d8d, #ff2d7d) !important;
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4) !important;
+        }
+
+        .action-btn .toggle-icon {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .action-btn.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .apartment-section {
+            background: linear-gradient(135deg, rgba(0, 166, 153, 0.1) 0%, rgba(0, 212, 170, 0.05) 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem 0;
+            border: 2px solid rgba(0, 166, 153, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 719px) {
+            .apartment-actions {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .action-btn {
+                padding: 1rem 1.2rem;
+                font-size: 1rem;
+            }
+            
+            .apartment-section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Simplified Contact Section */
+        .contact-simple {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-host-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border: 2px solid #f0f0f0;
+        }
+
+        .contact-host-info h3 {
+            color: #00a699;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
             font-weight: 700;
         }
 
-        .feature-card p {
+        .contact-host-info p {
             font-size: 1.1rem;
-            line-height: 1.6;
-            color: #555;
+            line-height: 1.8;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-details p {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 0;
+            padding: 0.5rem 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid #f0f0f0;
+        }
+
+        @media (max-width: 719px) {
+            .contact-details {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+            
+            .contact-details p {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .contact-host-info {
+                padding: 1.5rem;
+            }
         }
 
         /* Accommodations */
         .accommodations {
             background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+            padding: 4rem 0;
         }
 
         .accommodation-grid {
             display: grid;
-            gap: 1.5rem;
+            gap: 2rem;
             grid-template-columns: 1fr;
             max-width: 800px;
             margin: 0 auto;
+            padding: 2rem 0;
         }
 
         @media (min-width: 720px) {
@@ -264,24 +420,28 @@
         .accommodation-card {
             background: white;
             border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            overflow: visible;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
             transition: all 0.3s ease;
             border: 3px solid #f0f0f0;
+            position: relative;
+            z-index: 1;
+            margin: 2rem 0;
         }
 
         .accommodation-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            border-color: #00a699;
+            border-color: #f0f0f0;
         }
 
         /* Photo Carousel Styles */
         .photo-carousel {
             position: relative;
             height: 400px;
-            overflow: hidden;
+            overflow: visible;
             border-radius: 20px 20px 0 0;
+            margin: 0;
         }
 
         .carousel-container {
@@ -503,23 +663,26 @@
 
         /* New feature boxes grid */
         .accommodation-features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
             margin: 1.5rem 0;
+            justify-content: flex-start;
         }
 
         .feature-box {
             background: #f8f9fa;
             border: 1px solid #e9ecef;
             border-radius: 8px;
-            padding: 1rem;
+            padding: 0.8rem 1.2rem;
             text-align: center;
             font-size: 0.9rem;
             font-weight: 600;
             color: #2c3e50;
             transition: all 0.3s ease;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .feature-box:hover {
@@ -825,9 +988,9 @@
         }
 
         .footer-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
             margin-bottom: 2rem;
             max-width: 980px;
             margin: 0 auto 2rem;
@@ -835,7 +998,7 @@
 
         @media (min-width: 720px) {
             .footer-content {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
             }
         }
 
@@ -853,6 +1016,84 @@
 
         .footer-section a:hover {
             color: #d4c5b9;
+        }
+
+        /* Legal buttons and sections - fixed position */
+        .legal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0 1rem 0;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
+        }
+
+        .legal-content {
+            margin-top: 0.5rem;
+            position: relative;
+        }
+
+        .legal-btn {
+            background: none;
+            color: #999;
+            border: none;
+            padding: 0.2rem 0.4rem;
+            font-size: 0.75rem;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .legal-btn:hover {
+            color: #666;
+        }
+
+        .legal-btn .toggle-icon {
+            font-size: 0.6rem;
+            margin-left: 0.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .legal-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 0;
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        .legal-section.expanded {
+            max-height: 2000px;
+            margin-bottom: 1rem;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .legal-section h4 {
+            color: #999;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        .legal-section p {
+            color: #999;
+            font-size: 0.75rem;
+            line-height: 1.4;
+            margin-bottom: 0.4rem;
+            text-align: left;
+        }
+
+        .legal-section a {
+            color: #999;
+            text-decoration: underline;
+        }
+
+        .legal-section a:hover {
+            color: #666;
         }
 
         /* Booking form styles */
@@ -1070,6 +1311,7 @@
             padding: 0 16px;
             margin: 0 auto;
             overflow-x: hidden;
+            overflow-y: visible;
         }
 
         @media (min-width: 768px) {
@@ -1203,53 +1445,20 @@
             }
         }
 
-        /* Mobile-optimized features grid */
-        .features-grid {
-            display: grid;
-            gap: 1rem;
-            grid-template-columns: 1fr;
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 8px;
-        }
 
-        @media (min-width: 768px) {
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1.5rem;
-                padding: 0;
-                max-width: 980px;
-            }
-        }
 
-        .feature-card {
-            background: white;
-            padding: 1.5rem 1rem;
-            border-radius: 16px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 3px solid #f0f0f0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            width: 100%;
-            box-sizing: border-box;
-        }
 
-        @media (min-width: 768px) {
-            .feature-card {
-                padding: 2.5rem 2rem;
-                max-width: 320px;
-                margin: 0 auto;
-            }
-        }
+
+
 
         /* Mobile-optimized accommodation section */
         .accommodation-grid {
             display: grid;
-            gap: 1rem;
+            gap: 1.5rem;
             grid-template-columns: 1fr;
             max-width: 100%;
             margin: 0 auto;
-            padding: 0 8px;
+            padding: 1rem 8px;
         }
 
         @media (min-width: 768px) {
@@ -1263,19 +1472,22 @@
         .accommodation-card {
             background: white;
             border-radius: 20px;
-            overflow: hidden;
+            overflow: visible;
             box-shadow: 0 8px 30px rgba(0,0,0,0.12);
             transition: all 0.3s ease;
             border: 3px solid #f0f0f0;
             width: 100%;
             box-sizing: border-box;
+            /* Ensure shadow is fully visible */
+            margin: 1rem 0;
+            padding: 0.5rem;
         }
 
         /* Mobile-optimized photo carousel */
         .photo-carousel {
             position: relative;
             height: 200px;
-            overflow: hidden;
+            overflow: visible;
             border-radius: 20px 20px 0 0;
             width: 100%;
         }
@@ -1318,9 +1530,9 @@
             }
 
             .accommodation-features-grid {
-                grid-template-columns: repeat(2, 1fr);
                 gap: 0.6rem;
                 margin: 1rem 0;
+                justify-content: flex-start;
             }
 
             .feature-box {
@@ -1487,18 +1699,25 @@
                 padding: 0 4px;
             }
             
+            .hero-highlight {
+                display: inline;
+                background: none;
+                border: none;
+                padding: 0;
+                margin: 0 0.3rem;
+                font-weight: 700;
+            }
+            
             .cta-button {
                 margin: 0.5rem 0;
                 width: 100%;
                 max-width: none;
             }
             
-            .feature-card {
-                margin: 0 4px;
-            }
+
             
             .accommodation-card {
-                margin: 0 4px;
+                margin: 0.5rem 4px;
             }
             
             .contact-item {
@@ -1522,24 +1741,25 @@
 
         /* Hero Inquiry Form */
         .hero-inquiry-form {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%);
+            background: linear-gradient(135deg, rgba(0, 166, 153, 0.15) 0%, rgba(0, 212, 170, 0.1) 100%);
             padding: 3rem;
             border-radius: 25px;
             border: 4px solid #ff6b9d;
-            margin: 3rem auto 0;
+            margin: 3rem auto 2rem;
             backdrop-filter: blur(20px);
             max-width: 750px;
             position: relative;
-            z-index: 1;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 107, 157, 0.2);
+            z-index: 10;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
+            /* Ensure shadow is fully visible */
+            transform: translateZ(0);
         }
 
         .hero-inquiry-form:hover {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.25) 100%);
-            border-color: #ff4d8d;
+            background: linear-gradient(135deg, rgba(0, 166, 153, 0.35) 0%, rgba(0, 212, 170, 0.25) 100%);
             transform: translateY(-3px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(255, 107, 157, 0.4);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
 
         .hero-inquiry-form h3 {
@@ -1584,7 +1804,7 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.6);
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-align: center;
+            text-align: left;
         }
 
         .hero-inquiry-form .inquiry-group input,
@@ -1602,12 +1822,29 @@
         }
 
         .hero-inquiry-form .inquiry-group input:focus,
-        .hero-inquiry-form .inquiry-group select:focus {
+        .hero-inquiry-form .inquiry-group select:focus,
+        .hero-inquiry-form .inquiry-group textarea:focus {
             outline: none;
             border-color: white;
             background: white;
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 15px 35px rgba(255, 255, 255, 0.4);
+        }
+
+        .hero-inquiry-form .inquiry-group textarea {
+            padding: 1.2rem;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            border-radius: 15px;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.95);
+            color: #2c3e50;
+            font-weight: 700;
+            text-align: left;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            resize: vertical;
+            min-height: 80px;
+            font-family: inherit;
         }
 
         .hero-inquiry-form .inquiry-buttons {
@@ -1671,15 +1908,19 @@
 
         /* Mobile-specific hero inquiry form */
         @media (max-width: 767px) {
+            .hero {
+                padding: 100px 16px 140px;
+            }
+            
             .hero-inquiry-form {
-                margin: 2rem 8px 0;
-                padding: 2.5rem 1.5rem;
+                margin: 1.5rem 8px 2rem;
+                padding: 2rem 1.5rem;
                 border-radius: 20px;
             }
 
             .hero-inquiry-form h3 {
                 font-size: 1.6rem;
-                margin-bottom: 2rem;
+                margin-bottom: 1.5rem;
                 letter-spacing: 1px;
             }
 
@@ -1699,6 +1940,279 @@
                 letter-spacing: 1px;
             }
         }
+
+        /* Apartment Inquiry Form */
+        .apartment-inquiry-form {
+            background: linear-gradient(135deg, rgba(0, 166, 153, 0.25) 0%, rgba(0, 212, 170, 0.15) 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            border: none;
+            margin: 2rem 0;
+            backdrop-filter: blur(20px);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .apartment-inquiry-form h4 {
+            text-align: left;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: #222;
+            font-weight: 700;
+        }
+
+        .simple-apartment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .simple-apartment-form .inquiry-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 600px) {
+            .simple-apartment-form .inquiry-row {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .simple-apartment-form .inquiry-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .simple-apartment-form .inquiry-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #222;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .simple-apartment-form .inquiry-group input,
+        .simple-apartment-form .inquiry-group select {
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+            color: #2c3e50;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .simple-apartment-form .inquiry-group input:focus,
+        .simple-apartment-form .inquiry-group select:focus,
+        .simple-apartment-form .inquiry-group textarea:focus {
+            outline: none;
+            border-color: #ff6b9d;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
+        }
+
+        .simple-apartment-form .inquiry-group textarea {
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+            color: #2c3e50;
+            font-weight: 500;
+            text-align: left;
+            resize: vertical;
+            min-height: 40px;
+            font-family: inherit;
+        }
+
+        /* Collapsible sections for mobile */
+        .collapsible-section {
+            position: relative;
+        }
+
+        .collapsible-header {
+            display: none;
+            cursor: pointer;
+            padding: 1.2rem 1.8rem;
+            background: linear-gradient(135deg, #00a699, #00d4aa);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 166, 153, 0.3);
+        }
+
+        /* Initially collapse all collapsible content */
+        .collapsible-content.collapsed {
+            max-height: 0;
+            opacity: 0;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .collapsible-header:hover {
+            background: linear-gradient(135deg, #008f85, #00a699);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 166, 153, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .collapsible-header h4 {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .collapsible-content.collapsed {
+            max-height: 0;
+            opacity: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .collapsible-content.expanded {
+            max-height: 2000px;
+            opacity: 1;
+            margin: 0;
+            padding: 0;
+            overflow: visible;
+        }
+
+        .toggle-icon {
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 8px;
+            border-radius: 6px;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .toggle-icon.expanded {
+            transform: rotate(180deg);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .simple-apartment-form .inquiry-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 600px) {
+            .simple-apartment-form .inquiry-buttons {
+                flex-direction: row;
+            }
+        }
+
+        .simple-apartment-form .inquiry-btn {
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            flex: 1;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .simple-apartment-form .inquiry-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .simple-apartment-form .email-btn {
+            background: linear-gradient(135deg, #ff6b9d, #ff4d8d);
+            color: white;
+            border: 2px solid #ff4d8d;
+        }
+
+        .simple-apartment-form .email-btn:hover {
+            background: linear-gradient(135deg, #ff4d8d, #ff2d7d);
+            border-color: #ff2d7d;
+        }
+
+        .simple-apartment-form .whatsapp-btn {
+            background: linear-gradient(135deg, #25d366, #00ff88);
+            color: white;
+            border: 2px solid #25d366;
+        }
+
+        .simple-apartment-form .whatsapp-btn:hover {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            border-color: #00ff88;
+        }
+
+        /* Mobile optimization for apartment inquiry form */
+        @media (max-width: 767px) {
+            .apartment-inquiry-form {
+                padding: 1.5rem;
+                margin: 1.5rem 0;
+            }
+
+            .apartment-inquiry-form h4 {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .simple-apartment-form .inquiry-row {
+                gap: 0.8rem;
+            }
+
+            .simple-apartment-form .inquiry-group input,
+            .simple-apartment-form .inquiry-group select {
+                padding: 0.7rem;
+                font-size: 0.9rem;
+            }
+
+            .simple-apartment-form .inquiry-btn {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            /* Show collapsible headers on mobile */
+            .collapsible-header {
+                display: block;
+            }
+
+            /* Hide original headers on mobile */
+            .apartment-inquiry-form h4:not(.collapsible-header h4) {
+                display: none;
+            }
+
+            /* Initially collapse content on mobile */
+            .collapsible-content.collapsed {
+                max-height: 0;
+                opacity: 0;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            .collapsible-content.expanded {
+                max-height: 2000px;
+                opacity: 1;
+                margin: 0;
+                padding: 0;
+                overflow: visible;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1706,7 +2220,7 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <div class="header-title">🏠 Dein Monteurzimmer in Heringen</div>
+                                 <div class="header-title">🏠 Dein Monteurzimmer</div>
                 <a href="tel:+4917630167602" class="header-cta">📞 Jetzt anrufen</a>
             </div>
         </div>
@@ -1722,24 +2236,37 @@
             <div class="hero-inquiry-form">
                 <h3>📅 Unkompliziert anfragen</h3>
                 <form class="simple-inquiry-form" onsubmit="submitInquiry(event)">
-                    <div class="inquiry-row">
-                        <div class="inquiry-group">
-                            <label for="inquiry-checkin">Anreise</label>
-                            <input type="date" id="inquiry-checkin" name="checkin" required>
-                        </div>
-                        <div class="inquiry-group">
-                            <label for="inquiry-checkout">Abreise</label>
-                            <input type="date" id="inquiry-checkout" name="checkout" required>
-                        </div>
-                        <div class="inquiry-group">
-                            <label for="inquiry-guests">Gäste</label>
-                            <select id="inquiry-guests" name="guests" required>
-                                <option value="">Anzahl</option>
-                                <option value="1">1 Person</option>
-                                <option value="2">2 Personen</option>
-                            </select>
-                        </div>
-                    </div>
+                                         <div class="inquiry-row">
+                         <div class="inquiry-group">
+                             <label for="inquiry-checkin">Anreise</label>
+                             <input type="date" id="inquiry-checkin" name="checkin" required>
+                         </div>
+                         <div class="inquiry-group">
+                             <label for="inquiry-checkout">Abreise</label>
+                             <input type="date" id="inquiry-checkout" name="checkout" required>
+                         </div>
+                         <div class="inquiry-group">
+                             <label for="inquiry-guests">Gäste</label>
+                             <select id="inquiry-guests" name="guests" required>
+                                 <option value="">Anzahl</option>
+                                 <option value="1">1 Person</option>
+                                 <option value="2">2 Personen</option>
+                                 <option value="3">3 Personen</option>
+                                 <option value="4">4 Personen</option>
+                                 <option value="5">5 Personen</option>
+                                 <option value="6">6 Personen</option>
+                                 <option value="7">7 Personen</option>
+                                 <option value="8">8 Personen</option>
+                                 <option value="9">9 Personen</option>
+                                 <option value="10">10 Personen</option>
+                                 <option value="11">11 Personen</option>
+                                 <option value="12">12 Personen</option>
+                                 <option value="13">13 Personen</option>
+                                 <option value="14">14 Personen</option>
+                                 <option value="15">15 Personen</option>
+                             </select>
+                         </div>
+                     </div>
                     <div class="inquiry-buttons">
                         <button type="submit" class="inquiry-btn email-btn">📧 Per E-Mail anfragen</button>
                         <button type="button" class="inquiry-btn whatsapp-btn" onclick="sendWhatsAppInquiry()">💬 WhatsApp Anfrage</button>
@@ -1752,37 +2279,55 @@
     <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <h2 class="section-title">Warum unser Monteurzimmer in Heringen?</h2>
-            <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🛏️</div>
-                    <h3>Vollmöbliert</h3>
-                    <p>Einzelbetten, Kleiderschränke, Küche und alles was Sie brauchen - sofort bezugsfertig</p>
+            <h2 class="section-title">Warum unser Monteurzimmer?</h2>
+            <div class="features-simple">
+                <div class="feature-item">
+                    <span class="feature-icon">🛏️</span>
+                    <span class="feature-text">Einzelbetten & Kleiderschränke</span>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">📶</div>
-                    <h3>Kostenloses WLAN</h3>
-                    <p>Schnelles Internet für Video-Calls nach Hause und Entertainment nach Feierabend</p>
+                <div class="feature-item">
+                    <span class="feature-icon">🔥</span>
+                    <span class="feature-text">Herd & Backofen</span>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🍳</div>
-                    <h3>Vollküche</h3>
-                    <p>Herd, Kühlschrank, Kaffeemaschine - Selbstversorgung rund um die Uhr möglich</p>
+                <div class="feature-item">
+                    <span class="feature-icon">❄️</span>
+                    <span class="feature-text">Kühlschrank & Gefrierfach</span>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🚗</div>
-                    <h3>Kostenlose Parkplätze</h3>
-                    <p>Sichere Parkmöglichkeiten direkt vor der Unterkunft - auch für Transporter</p>
+                <div class="feature-item">
+                    <span class="feature-icon">☕</span>
+                    <span class="feature-text">Kaffeemaschine & Wasserkocher</span>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🧺</div>
-                    <h3>Waschmaschine</h3>
-                    <p>Eigene Waschmaschine in jeder Unterkunft für saubere Arbeitskleidung</p>
+                <div class="feature-item">
+                    <span class="feature-icon">🍽️</span>
+                    <span class="feature-text">Geschirr & Besteck komplett</span>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">⭐</div>
-                    <h3>Top Service</h3>
-                    <p>24/7 Erreichbarkeit, schnelle Reaktionszeiten und persönliche Betreuung vor Ort</p>
+                <div class="feature-item">
+                    <span class="feature-icon">🚿</span>
+                    <span class="feature-text">Eigenes Bad mit Dusche</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📺</span>
+                    <span class="feature-text">Smart-TV in jedem Zimmer</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📶</span>
+                    <span class="feature-text">Kostenloses WLAN</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🧺</span>
+                    <span class="feature-text">Waschmaschine & Trockner</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🚗</span>
+                    <span class="feature-text">Eigener Parkplatz pro Einheit</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔑</span>
+                    <span class="feature-text">Sofort bezugsfertig</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">⭐</span>
+                    <span class="feature-text">24/7 Service & Betreuung</span>
                 </div>
             </div>
         </div>
@@ -1791,7 +2336,7 @@
     <!-- Accommodations Section -->
     <section class="accommodations">
         <div class="container">
-                         <h2 class="section-title">Unsere Monteurzimmer in Heringen</h2>
+                         <h2 class="section-title">Unsere Monteurzimmer</h2>
             <div class="accommodation-grid">
                 <!-- Heringen Wohnung -->
                 <div class="accommodation-card fade-in">
@@ -1844,9 +2389,9 @@
                         </div>
                     </div>
                     
-                                         <div class="accommodation-content">
+                    <div class="accommodation-content">
                          <div class="accommodation-header">
-                             <h3 class="accommodation-title">5-10 Zimmer Monteurzimmer Heringen</h3>
+                             <h3 class="accommodation-title">5-10 Zimmer Monteurzimmer</h3>
                              <div class="accommodation-price">ab 25€ / Nacht / Person</div>
                          </div>
                          <p>Großzügige Monteurunterkunft mit 5-10 Zimmern im Zentrum von Heringen (Werra). Ideal für größere Gruppen von Monteuren oder Handwerkern. Alle Zimmer sind mit Küche und Bad ausgestattet.</p>
@@ -1862,12 +2407,70 @@
                              <div class="feature-box">Waschmaschine verfügbar</div>
                          </div>
                          
-                                                   <button class="book-now-btn" onclick="openSpecificApartmentModal()">
-                              📅 Jetzt anfragen
-                          </button>
+                                                                                                      <!-- Action buttons for apartment -->
+                        <div class="apartment-actions">
+                            <!-- Button for inquiry form -->
+                            <button class="action-btn inquiry-btn-toggle" onclick="toggleApartmentInquiry()">
+                                📅 Unkomplizierte Anfrage
+                                <span class="toggle-icon" id="inquiry-toggle">▼</span>
+                        </button>
+                            
+                            <!-- Button for maps -->
+                            <button class="action-btn maps-btn-toggle" onclick="toggleApartmentMaps()">
+                                🗺️ Auf Karte zeigen
+                                <span class="toggle-icon" id="maps-toggle">▼</span>
+                            </button>
+                        </div>
+
+                        <!-- Inquiry form (initially hidden) -->
+                        <div class="apartment-section" id="apartment-inquiry-section" style="display: none;">
+                            <form class="simple-apartment-form" onsubmit="submitApartmentInquiry(event)">
+                                <div class="inquiry-row">
+                                    <div class="inquiry-group">
+                                        <label for="apartment-checkin">Anreise</label>
+                                        <input type="date" id="apartment-checkin" name="checkin" required>
+                                    </div>
+                                    <div class="inquiry-group">
+                                        <label for="apartment-checkout">Abreise</label>
+                                        <input type="date" id="apartment-checkout" name="checkout" required>
+                                    </div>
+                                    <div class="inquiry-group">
+                                        <label for="apartment-guests">Gäste</label>
+                                        <select id="apartment-guests" name="guests" required>
+                                            <option value="">Anzahl</option>
+                                            <option value="1">1 Person</option>
+                                            <option value="2">2 Personen</option>
+                                            <option value="3">3 Personen</option>
+                                            <option value="4">4 Personen</option>
+                                            <option value="5">5 Personen</option>
+                                            <option value="6">6 Personen</option>
+                                            <option value="7">7 Personen</option>
+                                            <option value="8">8 Personen</option>
+                                            <option value="9">9 Personen</option>
+                                            <option value="10">10 Personen</option>
+                                            <option value="11">11 Personen</option>
+                                            <option value="12">12 Personen</option>
+                                            <option value="13">13 Personen</option>
+                                            <option value="14">14 Personen</option>
+                                            <option value="15">15 Personen</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="inquiry-group">
+                                    <label for="apartment-comment">Zusätzliche Anmerkungen</label>
+                                    <textarea id="apartment-comment" name="comment" placeholder="Besondere Wünsche, Fragen oder Anmerkungen..."></textarea>
+                                </div>
+                                <div class="inquiry-buttons">
+                                    <button type="submit" class="inquiry-btn email-btn">📧 Per E-Mail anfragen</button>
+                                    <button type="button" class="inquiry-btn whatsapp-btn" onclick="sendApartmentWhatsApp()">💬 WhatsApp Anfrage</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Google Maps section (initially hidden) -->
+                        <div class="apartment-section" id="apartment-maps-section" style="display: none;">
                                                  <div class="location-map">
                              <iframe 
-                                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d314.62594996371746!2d10.0109109!3d50.8865697!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a359003f30e887%3A0xef18933c7f7df17e!2sMonteurzimmer%20Monteurwohnung%20Cosima%20J%C3%A4hn%20-%20Heringen%20Philippsthal%20Berka%20Wildeck%20Friedewald!5e0!3m2!1sde!2sde!4v1755720277324!5m2!1sde!2sde"
+                                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d314.62594996371746!2d10.0109109!3d50.8865697!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a359003f30e887%3A0xef18933c7f7df17e!2sMonteurzimmer%20Monteurwohnung%20Cosima%20J%C3%A4hn%20-%20Heringen%20Philippsthal%20Berka%20Wildeck%20Friedewald!5e0!3m2!1sde!2sde!4v1755720277324!5m2!1sde!2sde&z=12"
                                  width="100%" 
                                  height="300" 
                                  style="border:0;" 
@@ -1880,6 +2483,7 @@
                                  <a href="https://maps.app.goo.gl/dUnEMCLdLApUH8k76" target="_blank" class="map-link">
                                      🗺️ In Google Maps öffnen
                                  </a>
+                                </div>
                              </div>
                          </div>
                     </div>
@@ -1891,25 +2495,18 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">Jetzt Kontakt aufnehmen</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
+
+            <div class="contact-simple">
+                <div class="contact-host-info">
                     <h3>Ihre Gastgeber</h3>
-                    <p style="margin-bottom: 2rem;">Wir freuen uns auf Ihre Anfrage! Als lokale Vermieter kennen wir die Region und helfen Ihnen gerne bei der Auswahl der passenden Unterkunft.</p>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div>+49 176 30167602</div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div>kontakt@monteurswohnungen-werra.de</div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>Werra-Meißner-Kreis<br>Hessen, Deutschland</div>
-                    </div>
+                    <p>Saubere & gepflegte Unterkünfte ✨ Unkomplizierte Abwicklung ✨ Zuverlässige Betreuung vor Ort ✨ Schnelle Reaktionszeiten ✨ Faire Preise & transparente Kosten</p>
                 </div>
+                
+                <div class="contact-details">
+                    <p>📱 +49 176 30167602</p>
+                    <p>✉️ kontakt@monteurswohnungen-werra.de</p>
+                    <p>📍 Werra-Meißner-Kreis, Hessen</p>
+                    </div>
             </div>
         </div>
     </section>
@@ -1918,47 +2515,102 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Monteurzimmer Heringen</h4>
-                    <p>Ihr zuverlässiger Gastgeber für komfortable Monteurunterkünfte in Heringen (Werra).</p>
+                <!-- Fixed legal buttons that stay in place -->
+                <div class="legal-buttons">
+                    <button class="legal-btn" onclick="toggleLegalSection('impressum')">
+                        <span class="btn-text">Impressum</span>
+                        <span class="toggle-icon">▼</span>
+                    </button>
+                    <button class="legal-btn" onclick="toggleLegalSection('agb')">
+                        <span class="btn-text">AGB</span>
+                        <span class="toggle-icon">▼</span>
+                    </button>
+                    <button class="legal-btn" onclick="toggleLegalSection('datenschutz')">
+                        <span class="btn-text">Datenschutz</span>
+                        <span class="toggle-icon">▼</span>
+                    </button>
                 </div>
-                <div class="footer-section">
-                    <h4>Schnellkontakt</h4>
-                    <p>📱 +49 176 30167602<br>
-                    ✉️ kontakt@monteurswohnungen-werra.de<br>
-                    📍 Werra-Meißner-Kreis</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Rechtliches</h4>
-                    <p><a href="#impressum">Impressum</a><br>
-                    <a href="#datenschutz">Datenschutz</a><br>
-                    <a href="#agb">AGB</a></p>
+                
+                <!-- Legal content that appears below buttons without affecting their position -->
+                <div class="legal-content">
+                    <!-- Impressum Section -->
+                    <div id="impressum-section" class="legal-section collapsed">
+                        <h4>Impressum</h4>
+                        <p><strong>Monteurzimmer Werra-Meißner</strong><br>
+                        Vertreten durch: Cosima Jähn<br>
+                        August-Vilmar-Straße 20<br>
+                        36266 Heringen<br>
+                        Deutschland</p>
+                        
+                        <p><strong>Kontakt:</strong><br>
+                        Telefon: +49 176 30167602<br>
+                        E-Mail: cosimajaehn@gmail.com</p>
+                        
+                        <p><strong>Umsatzsteuer-ID:</strong><br>
+                        Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE402498315</p>
+                        
+                        <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
+                        Cosima Jähn<br>
+                        August-Vilmar-Straße 20<br>
+                        36266 Heringen</p>
+                    </div>
+                    
+                    <!-- AGB Section -->
+                    <div id="agb-section" class="legal-section collapsed">
+                        <h4>Allgemeine Geschäftsbedingungen</h4>
+                        <p><strong>§1 Geltungsbereich</strong><br>
+                        Diese Allgemeinen Geschäftsbedingungen gelten für alle Buchungen von Monteurzimmern bei Monteurzimmer Werra-Meißner.</p>
+                        
+                        <p><strong>§2 Buchung und Vertragsschluss</strong><br>
+                        Die Buchung erfolgt über unsere Website, per E-Mail oder telefonisch. Der Vertrag kommt durch unsere schriftliche Bestätigung zustande.</p>
+                        
+                        <p><strong>§3 Preise und Zahlung</strong><br>
+                        Alle Preise verstehen sich in Euro inklusive der gesetzlichen Mehrwertsteuer. Die Zahlung erfolgt bei Anreise oder nach Vereinbarung.</p>
+                        
+                        <p><strong>§4 Stornierung</strong><br>
+                        Stornierungen sind bis 7 Tage vor Anreise kostenfrei möglich. Bei späteren Stornierungen fallen 50% der Gesamtkosten an.</p>
+                        
+                        <p><strong>§5 Anreise und Abreise</strong><br>
+                        Check-in ab 15:00 Uhr, Check-out bis 10:00 Uhr. Abweichungen sind nach Absprache möglich.</p>
+                        
+                        <p><strong>§6 Hausordnung</strong><br>
+                        Die Gäste verpflichten sich, die Zimmer und Einrichtungen pfleglich zu behandeln und die Hausordnung zu beachten.</p>
+                        
+                        <p><strong>§7 Haftung</strong><br>
+                        Wir haften nach den gesetzlichen Bestimmungen. Für Wertgegenstände der Gäste wird keine Haftung übernommen.</p>
+                    </div>
+                    
+                    <!-- Datenschutz Section -->
+                    <div id="datenschutz-section" class="legal-section collapsed">
+                        <h4>Datenschutzerklärung</h4>
+                        <p><strong>1. Verantwortlicher</strong><br>
+                        Verantwortlich für die Datenverarbeitung ist Monteurzimmer Werra-Meißner, vertreten durch Cosima Jähn, August-Vilmar-Straße 20, 36266 Heringen, Deutschland.</p>
+                        
+                        <p><strong>2. Erhebung und Verarbeitung personenbezogener Daten</strong><br>
+                        Wir erheben nur die Daten, die Sie uns freiwillig zur Verfügung stellen (Name, E-Mail, Telefonnummer, Anreise-/Abreisedaten).</p>
+                        
+                        <p><strong>3. Zweck der Datenverarbeitung</strong><br>
+                        Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage und Buchung verwendet.</p>
+                        
+                        <p><strong>4. Rechtsgrundlage</strong><br>
+                        Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).</p>
+                        
+                        <p><strong>5. Weitergabe an Dritte</strong><br>
+                        Eine Weitergabe Ihrer Daten an Dritte erfolgt nur, soweit dies für die Vertragserfüllung erforderlich ist oder Sie ausdrücklich eingewilligt haben.</p>
+                        
+                        <p><strong>6. Speicherdauer</strong><br>
+                        Ihre Daten werden nur so lange gespeichert, wie es für die Vertragserfüllung erforderlich ist oder gesetzliche Aufbewahrungsfristen bestehen.</p>
+                        
+                        <p><strong>7. Ihre Rechte</strong><br>
+                        Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten.</p>
+                        
+                        <p><strong>8. Kontakt</strong><br>
+                        Bei Fragen zum Datenschutz erreichen Sie uns unter: cosimajaehn@gmail.com</p>
+                    </div>
                 </div>
             </div>
             
-            <!-- Impressum -->
-            <div id="impressum" style="text-align: left; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #444;">
-                                 <h4 style="color: #d4c5b9; margin-bottom: 1rem;">Impressum</h4>
-                 <p><strong>Monteurzimmer Werra-Meißner</strong><br>
-                Vertreten durch: Cosima Jähn<br>
-                August-Vilmar-Straße 20<br>
-                36266 Heringen<br>
-                Deutschland</p>
-                
-                <p style="margin-top: 1rem;"><strong>Kontakt:</strong><br>
-                Telefon: +49 176 30167602<br>
-                E-Mail: cosimajaehn@gmail.com</p>
-                
-                <p style="margin-top: 1rem;"><strong>Umsatzsteuer-ID:</strong><br>
-                Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE402498315</p>
-                
-                <p style="margin-top: 1rem;"><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
-                Cosima Jähn<br>
-                August-Vilmar-Straße 20<br>
-                36266 Heringen</p>
-            </div>
-            
-            <p style="margin-top: 2rem; text-align: center; color: #ccc;">© 2025 Monteurzimmer Heringen. Alle Rechte vorbehalten.</p>
+            <p style="margin-top: 2rem; text-align: center; color: #ccc;">© 2025 Monteurzimmer Werra-Meißner. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
 
@@ -2030,15 +2682,15 @@
     </div>
 
     <script>
-                 // Location data for booking form
-         const locations = {
-             heringen: {
+        // Location data for booking form
+        const locations = {
+            heringen: {
                  name: "5-10 Zimmer Monteurzimmer Heringen",
-                 address: "August-Vilmar-Straße 20, 36266 Heringen (Werra)",
-                 price: "25€",
+                address: "August-Vilmar-Straße 20, 36266 Heringen (Werra)",
+                price: "25€",
                  maxPersons: 10
-             }
-         };
+            }
+        };
 
         // Open booking modal for specific location
         function openBookingModal(locationKey) {
@@ -2181,7 +2833,7 @@ ${data.message || 'Keine besonderen Wünsche'}
 
 ---
 Diese Anfrage wurde über die Website gesendet.
-                `.trim();
+            `.trim();
             }
             
             // Create mailto link
@@ -2336,28 +2988,23 @@ Diese Anfrage wurde über die Website gesendet.
             const checkout = new Date(data.checkout);
             const nights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
             
-            // Format email content
-            const subject = `Unkompliziert anfragen - Monteurzimmer`;
-            const body = `
-UNKOMPLIZIERTE ALLGEMEINE ANFRAGE
-
-HINWEIS: Dies ist eine allgemeine Anfrage ohne spezifische Standortauswahl.
-
-UNTERKUNFT:
-Monteurzimmer (Standort wird basierend auf Verfügbarkeit und Ihren Wünschen vorgeschlagen)
-
-ANFRAGEDETAILS:
-Anreise: ${formatDate(data.checkin)}
-Abreise: ${formatDate(data.checkout)}
-Anzahl Nächte: ${nights}
-Gäste: ${data.guests} Person${data.guests > 1 ? 'en' : ''}
-
-BESONDERHEIT:
-Diese Anfrage ist bewusst unkompliziert gehalten - wir finden gemeinsam die beste Lösung für Sie!
-
----
-Diese Anfrage wurde über die Website gesendet.
-            `.trim();
+                         // Format email content
+             const subject = `Anfrage - Monteurzimmer`;
+             const body = `
+ ANFRAGE - MONTEURZIMMER
+ 
+ UNTERKUNFT:
+ Monteurzimmer (Standort wird basierend auf Verfügbarkeit und Ihren Wünschen vorgeschlagen)
+ 
+ ANFRAGEDETAILS:
+ Anreise: ${formatDate(data.checkin)}
+ Abreise: ${formatDate(data.checkout)}
+ Anzahl Nächte: ${nights}
+ Gäste: ${data.guests} Person${data.guests > 1 ? 'en' : ''}
+ 
+ ---
+ Diese Anfrage wurde über die Website gesendet.
+             `.trim();
             
             // Create mailto link
             const mailtoLink = `mailto:cosimajaehn@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -2369,35 +3016,31 @@ Diese Anfrage wurde über die Website gesendet.
             alert('Ihre allgemeine Anfrage wird in Ihrem E-Mail-Programm geöffnet. Bitte senden Sie die E-Mail ab, um die Anfrage zu übermitteln.');
         }
 
-        function sendWhatsAppInquiry() {
-            const checkin = document.getElementById('inquiry-checkin').value;
-            const checkout = document.getElementById('inquiry-checkout').value;
-            const guests = document.getElementById('inquiry-guests').value;
-            
-            if (!checkin || !checkout || !guests) {
-                alert('Bitte füllen Sie alle Felder aus.');
-                return;
-            }
-            
-            // Calculate number of nights
-            const checkinDate = new Date(checkin);
-            const checkoutDate = new Date(checkout);
-            const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
-            
-            const message = `Hallo! Ich sende eine UNKOMPLIZIERTE ALLGEMEINE ANFRAGE für Monteurzimmer:
+                          function sendWhatsAppInquiry() {
+             const checkin = document.getElementById('inquiry-checkin').value;
+             const checkout = document.getElementById('inquiry-checkout').value;
+             const guests = document.getElementById('inquiry-guests').value;
+             
+             if (!checkin || !checkout || !guests) {
+                 alert('Bitte füllen Sie alle Felder aus.');
+                 return;
+             }
+             
+             // Calculate number of nights
+             const checkinDate = new Date(checkin);
+             const checkoutDate = new Date(checkout);
+             const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
+             
+             const message = `Hallo! Ich sende eine Anfrage für Monteurzimmer:
 
-📅 Anreise: ${formatDate(checkin)}
-📅 Abreise: ${formatDate(checkout)}
-🌙 Anzahl Nächte: ${nights}
-👥 Gäste: ${guests} Person${guests > 1 ? 'en' : ''}
-
-💡 WICHTIG: Kein spezifischer Standort gewählt - Sie schlagen mir gerne die beste Option vor!
-
-🎯 Das ist bewusst unkompliziert - wir finden gemeinsam die perfekte Lösung!`;
-            
-            const whatsappLink = `https://wa.me/4917630167602?text=${encodeURIComponent(message)}`;
-            window.open(whatsappLink, '_blank');
-        }
+  📅 Anreise: ${formatDate(checkin)}
+  📅 Abreise: ${formatDate(checkout)}
+  🌙 Anzahl Nächte: ${nights}
+  👥 Gäste: ${guests} Person${guests > 1 ? 'en' : ''}`;
+             
+             const whatsappLink = `https://wa.me/4917630167602?text=${encodeURIComponent(message)}`;
+             window.open(whatsappLink, '_blank');
+         }
 
         // Function for specific apartment inquiries (from accommodation card)
         function sendSpecificApartmentInquiry() {
@@ -2460,6 +3103,221 @@ Diese Anfrage wurde über die Website gesendet.
                 });
             }
         });
+
+        // Apartment inquiry form submission
+        function submitApartmentInquiry(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Calculate number of nights
+            const checkin = new Date(data.checkin);
+            const checkout = new Date(data.checkout);
+            const nights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
+            
+                                      // Format email content for specific apartment
+              const subject = `SPEZIFISCHE ANFRAGE - 5-10 Zimmer Monteurzimmer Heringen`;
+              const body = `
+  SPEZIFISCHE ANFRAGE FÜR DIESE UNTERKUNFT
+  
+  UNTERKUNFT:
+  5-10 Zimmer Monteurzimmer Heringen
+  August-Vilmar-Straße 20, 36266 Heringen (Werra)
+  Preis: ab 25€ pro Person/Nacht
+  
+  HINWEIS: Diese Anfrage bezieht sich spezifisch auf die Monteurzimmer in Heringen.
+  
+  ANFRAGEDETAILS:
+  Anreise: ${formatDate(data.checkin)}
+  Abreise: ${formatDate(data.checkout)}
+  Anzahl Nächte: ${nights}
+  Gäste: ${data.guests} Person${data.guests > 1 ? 'en' : ''}
+  
+  ZUSÄTZLICHE ANMERKUNGEN:
+  ${data.comment || 'Keine besonderen Wünsche'}
+  
+  ---
+  Diese Anfrage wurde über die Website gesendet.
+              `.trim();
+            
+            // Create mailto link
+            const mailtoLink = `mailto:cosimajaehn@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation
+            alert('Ihre Anfrage für die Monteurzimmer in Heringen wird in Ihrem E-Mail-Programm geöffnet. Bitte senden Sie die E-Mail ab, um die Anfrage zu übermitteln.');
+        }
+
+                                   function sendApartmentWhatsApp() {
+              const checkin = document.getElementById('apartment-checkin').value;
+              const checkout = document.getElementById('apartment-checkout').value;
+              const guests = document.getElementById('apartment-guests').value;
+              const comment = document.getElementById('apartment-comment').value;
+              
+              if (!checkin || !checkout || !guests) {
+                  alert('Bitte füllen Sie alle Felder aus.');
+                  return;
+              }
+              
+              // Calculate number of nights
+              const checkinDate = new Date(checkin);
+              const checkoutDate = new Date(checkout);
+              const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
+              
+              let message = `Hallo! Ich sende eine SPEZIFISCHE ANFRAGE für die Monteurzimmer in Heringen:
+  
+   🏠 UNTERKUNFT: 5-10 Zimmer Monteurzimmer Heringen
+   📍 Adresse: August-Vilmar-Straße 20, 36266 Heringen (Werra)
+   💰 Preis: ab 25€/Nacht/Person
+   
+   📅 Anreise: ${formatDate(checkin)}
+   📅 Abreise: ${formatDate(checkout)}
+   🌙 Anzahl Nächte: ${nights}
+   👥 Gäste: ${guests} Person${guests > 1 ? 'en' : ''}`;
+              
+              if (comment) {
+                  message += `\n\n💬 Zusätzliche Anmerkungen:\n${comment}`;
+              }
+              
+              message += `\n\n💡 WICHTIG: Diese Anfrage bezieht sich spezifisch auf die Monteurzimmer in Heringen!\n\n🎯 Ich interessiere mich für diese konkrete Unterkunft.`;
+             
+             const whatsappLink = `https://wa.me/4917630167602?text=${encodeURIComponent(message)}`;
+             window.open(whatsappLink, '_blank');
+         }
+
+                 // Set minimum dates for apartment inquiry form
+         document.addEventListener('DOMContentLoaded', function() {
+             const apartmentCheckin = document.getElementById('apartment-checkin');
+             const apartmentCheckout = document.getElementById('apartment-checkout');
+             
+             if (apartmentCheckin && apartmentCheckout) {
+                 // Set minimum date to today
+                 const today = new Date().toISOString().split('T')[0];
+                 apartmentCheckin.min = today;
+                 apartmentCheckout.min = today;
+                 
+                 // Update checkout date when checkin changes
+                 apartmentCheckin.addEventListener('change', function() {
+                     const checkinDate = new Date(this.value);
+                     const nextDay = new Date(checkinDate);
+                     nextDay.setDate(nextDay.getDate() + 1);
+                     
+                     apartmentCheckout.min = nextDay.toISOString().split('T')[0];
+                     
+                     // If checkout is before new minimum, update it
+                     if (apartmentCheckout.value && new Date(apartmentCheckout.value) <= checkinDate) {
+                         apartmentCheckout.value = nextDay.toISOString().split('T')[0];
+                     }
+                 });
+             }
+         });
+
+         // Collapsible sections function
+         function toggleSection(sectionId) {
+             console.log('toggleSection called with:', sectionId);
+             const content = document.getElementById(sectionId);
+             const header = content.previousElementSibling;
+             const toggleIcon = header.querySelector('.toggle-icon');
+             
+             console.log('Content element:', content);
+             console.log('Header element:', header);
+             console.log('Toggle icon:', toggleIcon);
+             console.log('Current classes:', content.classList.toString());
+             
+             if (content.classList.contains('collapsed')) {
+                 console.log('Expanding section...');
+                 content.classList.remove('collapsed');
+                 content.classList.add('expanded');
+                 toggleIcon.classList.add('expanded');
+                 toggleIcon.textContent = '▲';
+             } else {
+                 console.log('Collapsing section...');
+                 content.classList.remove('expanded');
+                 content.classList.add('collapsed');
+                 toggleIcon.classList.remove('expanded');
+                 toggleIcon.textContent = '▼';
+             }
+             
+                         console.log('Final classes:', content.classList.toString());
+        }
+
+        // New toggle functions for apartment sections
+        function toggleApartmentInquiry() {
+            const section = document.getElementById('apartment-inquiry-section');
+            const button = document.querySelector('.inquiry-btn-toggle');
+            const icon = document.getElementById('inquiry-toggle');
+            const mapsSection = document.getElementById('apartment-maps-section');
+            const mapsButton = document.querySelector('.maps-btn-toggle');
+            const mapsIcon = document.getElementById('maps-toggle');
+            
+            // Hide maps section if it's open
+            if (mapsSection.style.display === 'block') {
+                mapsSection.style.display = 'none';
+                mapsButton.classList.remove('active');
+                mapsIcon.textContent = '▼';
+            }
+            
+            // Toggle inquiry section
+            if (section.style.display === 'none' || section.style.display === '') {
+                section.style.display = 'block';
+                button.classList.add('active');
+                icon.textContent = '▲';
+            } else {
+                section.style.display = 'none';
+                button.classList.remove('active');
+                icon.textContent = '▼';
+            }
+        }
+
+        function toggleApartmentMaps() {
+            const section = document.getElementById('apartment-maps-section');
+            const button = document.querySelector('.maps-btn-toggle');
+            const icon = document.getElementById('maps-toggle');
+            const inquirySection = document.getElementById('apartment-inquiry-section');
+            const inquiryButton = document.querySelector('.inquiry-btn-toggle');
+            const inquiryIcon = document.getElementById('inquiry-toggle');
+            
+            // Hide inquiry section if it's open
+            if (inquirySection.style.display === 'block') {
+                inquirySection.style.display = 'none';
+                inquiryButton.classList.remove('active');
+                inquiryIcon.textContent = '▼';
+            }
+            
+            // Toggle maps section
+            if (section.style.display === 'none' || section.style.display === '') {
+                section.style.display = 'block';
+                button.classList.add('active');
+                icon.textContent = '▲';
+            } else {
+                section.style.display = 'none';
+                button.classList.remove('active');
+                icon.textContent = '▼';
+            }
+        }
+
+        // Legal sections toggle function - improved with smooth transitions
+        function toggleLegalSection(sectionName) {
+            const clickedSection = document.getElementById(sectionName + '-section');
+            const clickedButton = event.target.closest('.legal-btn');
+            const clickedIcon = clickedButton.querySelector('.toggle-icon');
+            
+            // Toggle the clicked section
+            if (clickedSection.classList.contains('collapsed')) {
+                // Expand section
+                clickedSection.classList.remove('collapsed');
+                clickedSection.classList.add('expanded');
+                clickedIcon.style.transform = 'rotate(180deg)';
+            } else {
+                // Collapse section
+                clickedSection.classList.remove('expanded');
+                clickedSection.classList.add('collapsed');
+                clickedIcon.style.transform = 'rotate(0deg)';
+            }
+        }
     </script>
 </body>
 </html>
