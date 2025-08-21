@@ -254,14 +254,17 @@
         @media (max-width: 719px) {
             .features-simple {
                 flex-direction: column;
-            align-items: center;
-                gap: 1rem;
+                align-items: center;
+                gap: 0.8rem;
+                padding: 0 8px;
             }
             
             .feature-item {
                 width: 100%;
-                max-width: 400px;
-            justify-content: center;
+                max-width: 380px;
+                justify-content: center;
+                padding: 0.8rem 1.2rem;
+                margin-bottom: 0.5rem;
             }
         }
 
@@ -507,7 +510,7 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 2rem;
-                padding: 1.5rem 0;
+                padding: 1.5rem 8px;
             }
             
             .contact-details {
@@ -516,15 +519,17 @@
                 align-items: center;
                 justify-content: center;
                 padding: 1rem 0;
+                width: 100%;
             }
             
             .contact-details .contact-button {
                 width: auto;
                 max-width: none;
-                padding: 1rem 1.5rem;
+                padding: 1rem 1.2rem;
                 gap: 0.8rem;
-                min-width: 180px;
+                min-width: 160px;
                 height: 4.5rem;
+                flex: 1;
             }
             
             .contact-details .contact-icon {
@@ -533,6 +538,7 @@
             
             .contact-details .contact-text {
                 font-size: 1rem;
+                white-space: nowrap;
             }
             
             .contact-host-info {
@@ -577,6 +583,16 @@
             }
         }
 
+        @media (max-width: 767px) {
+            .accommodations {
+                padding: 3rem 0 3rem;
+            }
+            
+            .accommodation-grid {
+                padding: 2rem 8px;
+            }
+        }
+
         .accommodation-card {
             background: white;
             border-radius: 20px;
@@ -591,6 +607,12 @@
             transform: translateZ(0);
             /* Add extra padding to prevent shadow clipping */
             padding-bottom: 2rem;
+        }
+
+        @media (max-width: 767px) {
+            .accommodation-card {
+                margin: 2rem 0;
+            }
         }
 
         .accommodation-card:hover {
@@ -1595,7 +1617,7 @@
         .header-cta {
             background: linear-gradient(135deg, #ff6b9d, #ff4d8d);
             color: white;
-            padding: 0.6rem 1rem;
+            padding: 0.6rem 0.8rem;
             border-radius: 8px;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -1770,9 +1792,10 @@
             }
 
             .feature-box {
-                padding: 0.6rem;
+                padding: 0.6rem 0.8rem;
                 font-size: 0.8rem;
                 border-width: 1px;
+                white-space: nowrap;
             }
 
             .accommodation-content p {
@@ -2207,6 +2230,7 @@
                 padding: 1.2rem 2rem;
                 font-size: 1.1rem;
                 letter-spacing: 1px;
+                white-space: nowrap;
             }
         }
 
@@ -2458,6 +2482,7 @@
             .simple-apartment-form .inquiry-btn {
                 padding: 0.8rem 1.2rem;
                 font-size: 0.9rem;
+                white-space: nowrap;
             }
 
             /* Show collapsible headers on mobile */
