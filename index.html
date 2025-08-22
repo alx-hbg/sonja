@@ -504,7 +504,7 @@
             color: #333;
             font-weight: 600;
             word-break: break-word;
-            margin-left: 0.3rem;
+            margin-left: 0;
         }
 
         @media (max-width: 719px) {
@@ -536,7 +536,7 @@
             
             .contact-details .contact-icon {
                 font-size: 1.2rem;
-                margin-right: 0.4rem;
+                margin-right: 0.3rem;
             }
             
             .contact-details .contact-text {
@@ -1712,6 +1712,20 @@
             margin: 0 auto;
             padding: 4rem 8px;
             text-align: center;
+        }
+
+        /* Mobile carousel width adjustment */
+        @media (max-width: 767px) {
+            .accommodation-card {
+                margin: 2rem 8px;
+                width: calc(100% - 16px);
+                box-sizing: border-box;
+            }
+            
+            .photo-carousel {
+                width: 100%;
+                max-width: 100%;
+            }
         }
 
         /* Mobile accommodation section padding */
@@ -3492,16 +3506,14 @@ Diese Anfrage wurde über die Website gesendet.
             const nights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
             
                                       // Format email content for specific apartment
-              const subject = `SPEZIFISCHE ANFRAGE - Monteur und Ferien Wohnung in Heringen`;
+              const subject = `ANFRAGE - Monteur- und Ferienwohnungen in Heringen`;
               const body = `
-  SPEZIFISCHE ANFRAGE FÜR DIESE UNTERKUNFT
+  ANFRAGE FÜR ZIMMER IN HERINGEN
   
   UNTERKUNFT:
-  Monteur und Ferien Wohnung in Heringen
+  Monteur- und Ferienwohnungen in Heringen
   August-Vilmar-Straße 20, 36266 Heringen (Werra)
   Preis: ab 25€ pro Person/Nacht
-  
-  HINWEIS: Diese Anfrage bezieht sich spezifisch auf die Monteurzimmer in Heringen.
   
   ANFRAGEDETAILS:
   Anreise: ${formatDate(data.checkin)}
@@ -3542,9 +3554,9 @@ Diese Anfrage wurde über die Website gesendet.
               const checkoutDate = new Date(checkout);
               const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
               
-                            let message = `Hallo! Ich sende eine SPEZIFISCHE ANFRAGE für die Monteurzimmer in Heringen:
+                            let message = `Hallo! Ich interessiere mich für ein/mehrere Zimmer eurer Wohnung in Heringen:
 
-   🏠 UNTERKUNFT: Monteur und Ferien Wohnung in Heringen
+   🏠 UNTERKUNFT: Monteur- und Ferienwohnungen in Heringen
    📍 Adresse: August-Vilmar-Straße 20, 36266 Heringen (Werra)
    💰 Preis: ab 25€/Nacht/Person
    
@@ -3556,8 +3568,6 @@ Diese Anfrage wurde über die Website gesendet.
               if (comment) {
                   message += `\n\n💬 Zusätzliche Anmerkungen:\n${comment}`;
               }
-              
-              message += `\n\n💡 WICHTIG: Diese Anfrage bezieht sich spezifisch auf die Monteurzimmer in Heringen!\n\n🎯 Ich interessiere mich für diese konkrete Unterkunft.`;
              
              const whatsappLink = `https://wa.me/491634848652?text=${encodeURIComponent(message)}`;
              window.open(whatsappLink, '_blank');
