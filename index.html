@@ -2357,6 +2357,36 @@
             overflow: hidden;
         }
 
+        /* Text expansion styles */
+        .collapsible-content.expanded {
+            max-height: 2000px;
+            opacity: 1;
+            margin: 0;
+            padding: 0;
+            overflow: visible;
+        }
+
+        /* Unsichtbarer Text-Toggle Button */
+        .text-toggle-btn {
+            background: none;
+            border: none;
+            color: #00a699;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            margin: 1rem 0;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border-radius: 4px;
+        }
+
+        .text-toggle-btn:hover {
+            color: #008f85;
+            background: rgba(0, 166, 153, 0.1);
+            text-decoration: none;
+        }
+
         .collapsible-header:hover {
             background: linear-gradient(135deg, #008f85, #00a699);
             transform: translateY(-3px);
@@ -2525,7 +2555,7 @@
         <div class="container">
             <div class="header-content">
                                  <div class="header-title">🏠 Dein Monteurzimmer</div>
-                <a href="tel:+4917630167602" class="header-cta">📞 Jetzt anrufen</a>
+                <a href="tel:+491634848652" class="header-cta">📞 Jetzt anrufen</a>
             </div>
         </div>
     </header>
@@ -2568,6 +2598,11 @@
                                  <option value="13">13 Personen</option>
                                  <option value="14">14 Personen</option>
                                  <option value="15">15 Personen</option>
+                                 <option value="16">16 Personen</option>
+                                 <option value="17">17 Personen</option>
+                                 <option value="18">18 Personen</option>
+                                 <option value="19">19 Personen</option>
+                                 <option value="20">20 Personen</option>
                              </select>
                          </div>
                      </div>
@@ -2633,6 +2668,26 @@
                     <span class="feature-icon">⭐</span>
                     <span class="feature-text">24/7 Service & Betreuung</span>
                 </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🏠</span>
+                    <span class="feature-text">20 Zimmer verfügbar</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">👥</span>
+                    <span class="feature-text">Einzel-, Doppel- & 3-Bett Zimmer</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🍖</span>
+                    <span class="feature-text">Grillplätze verfügbar</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🚴</span>
+                    <span class="feature-text">Ideal für Radfahrer</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🛒</span>
+                    <span class="feature-text">Einkaufsmöglichkeiten in der Nähe</span>
+                </div>
             </div>
         </div>
     </section>
@@ -2665,18 +2720,7 @@
                                     📸 Küche - Monteurswohnung Heringen
                                 </div>
                             </div>
-                            <div class="carousel-slide">
-                                <img src="assets/images/heringen-4.jpg" alt="Monteurswohnung Heringen - Bad" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="placeholder-image" style="display: none;">
-                                    📸 Bad - Monteurswohnung Heringen
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="assets/images/heringen-5.jpg" alt="Monteurswohnung Heringen - Außenansicht" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="placeholder-image" style="display: none;">
-                                    📸 Außenansicht - Monteurswohnung Heringen
-                                </div>
-                            </div>
+
                         </div>
                         
                         <!-- Carousel Navigation -->
@@ -2688,27 +2732,37 @@
                             <span class="indicator active" onclick="currentSlide(1)"></span>
                             <span class="indicator" onclick="currentSlide(2)"></span>
                             <span class="indicator" onclick="currentSlide(3)"></span>
-                            <span class="indicator" onclick="currentSlide(4)"></span>
-                            <span class="indicator" onclick="currentSlide(5)"></span>
                         </div>
                     </div>
                     
                     <div class="accommodation-content">
                          <div class="accommodation-header">
-                             <h3 class="accommodation-title">5-10 Zimmer Monteurzimmer</h3>
+                             <h3 class="accommodation-title">Monteur- und Ferienwohnungen in Heringen</h3>
                              <div class="accommodation-price">ab 25€ / Nacht / Person</div>
                          </div>
-                         <p>Großzügige Monteurunterkunft mit 5-10 Zimmern im Zentrum von Heringen (Werra). Ideal für größere Gruppen von Monteuren oder Handwerkern. Alle Zimmer sind mit Küche und Bad ausgestattet.</p>
+                         <p>Komfortable Unterkunft in Heringen – ideal für Monteure & Radfahrer. Insgesamt stehen bis zu 20 Zimmer zur Verfügung – wahlweise als Einzelzimmer, Doppelzimmer oder Dreibettzimmer. Alle Zimmer sind vollständig ausgestattet und werden regelmäßig gereinigt. Frische Bettwäsche und Handtücher sind selbstverständlich inklusive.</p>
+                         
+                         <div id="collapsible-text" class="collapsible-content collapsed">
+                             <p>Die zentrale Lage macht den Alltag leicht: Zahlreiche Einkaufsmöglichkeiten sowie Bäckereien sind bequem zu Fuß erreichbar. Für gemütliche Abende stehen an jeder Unterkunft eigene Grillplätze zur Verfügung. Parkmöglichkeiten gibt es ausreichend – auch für große Fahrzeuge und Transporter. Nicht nur Monteure fühlen sich bei uns wohl: Auch Radfahrer sind herzlich willkommen und finden hier den idealen Ausgangspunkt für ihre Touren rund um Heringen.</p>
+                         </div>
+                         
+                         <button class="text-toggle-btn" onclick="toggleText()">
+                             <span id="toggle-text-btn">📖 Mehr anzeigen</span>
+                         </button>
                          
                          <div class="accommodation-features-grid">
-                             <div class="feature-box">5-10 Zimmer verfügbar</div>
-                             <div class="feature-box">Einzel- & 3-Bett Zimmer</div>
+                             <div class="feature-box">20 Zimmer verfügbar</div>
+                             <div class="feature-box">Einzel-, Doppel- & 3-Bett Zimmer</div>
                              <div class="feature-box">Vollküche mit Geschirrspüler</div>
                              <div class="feature-box">Eigenes Bad pro Zimmer</div>
-                             <div class="feature-box">Smart-TV in jedem Zimmer</div>
+                             <div class="feature-box">Fernseher in jedem Zimmer</div>
                              <div class="feature-box">Eigener Parkplatz pro Wohneinheit</div>
                              <div class="feature-box">Kostenloses WLAN</div>
                              <div class="feature-box">Waschmaschine verfügbar</div>
+                             <div class="feature-box">Grillplätze verfügbar</div>
+                             <div class="feature-box">Große Parkplätze für Transporter</div>
+                             <div class="feature-box">Regelmäßiger Bettwäsche- & Handtuchwechsel</div>
+                             <div class="feature-box">Langfristige Miete möglich</div>
                          </div>
                          
                                                                                                       <!-- Action buttons for apartment -->
@@ -2757,13 +2811,20 @@
                                             <option value="13">13 Personen</option>
                                             <option value="14">14 Personen</option>
                                             <option value="15">15 Personen</option>
+                                            <option value="16">16 Personen</option>
+                                            <option value="17">17 Personen</option>
+                                            <option value="18">18 Personen</option>
+                                            <option value="19">19 Personen</option>
+                                            <option value="20">20 Personen</option>
                                         </select>
                                     </div>
                                 </div>
+
                                 <div class="inquiry-group">
                                     <label for="apartment-comment">Zusätzliche Anmerkungen</label>
                                     <textarea id="apartment-comment" name="comment" placeholder="Besondere Wünsche, Fragen oder Anmerkungen..."></textarea>
                                 </div>
+                                
                                 <div class="inquiry-buttons">
                                     <button type="submit" class="inquiry-btn email-btn">📧 Per E-Mail anfragen</button>
                                     <button type="button" class="inquiry-btn whatsapp-btn" onclick="sendApartmentWhatsApp()">💬 WhatsApp Anfrage</button>
@@ -2774,7 +2835,7 @@
                         <div class="apartment-section" id="apartment-maps-section" style="display: none;">
                                                  <div class="location-map">
                              <iframe 
-                                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d314.62594996371746!2d10.0109109!3d50.8865697!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a359003f30e887%3A0xef18933c7f7df17e!2sMonteurzimmer%20Monteurwohnung%20Cosima%20J%C3%A4hn%20-%20Heringen%20Philippsthal%20Berka%20Wildeck%20Friedewald!5e0!3m2!1sde!2sde!4v1755720277324!5m2!1sde!2sde&z=12"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20129.473351994053!2d9.998062605953338!3d50.901808286363774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a3591f3bfba0cb%3A0xbd81625391b13878!2sZimmervermietung%20Sonja!5e0!3m2!1sde!2sde!4v1755855058082!5m2!1sde!2sde"
                                  width="100%" 
                                  height="300" 
                                  style="border:0;" 
@@ -2783,7 +2844,7 @@
                                  referrerpolicy="no-referrer-when-downgrade">
                              </iframe>
                              <div class="map-info">
-                                 <p><strong>📍 Adresse:</strong> August-Vilmar-Straße 20, 36266 Heringen (Werra)</p>
+
                                  <a href="https://maps.app.goo.gl/dUnEMCLdLApUH8k76" target="_blank" class="map-link">
                                      🗺️ In Google Maps öffnen
                                  </a>
@@ -2792,156 +2853,10 @@
                          </div>
                     </div>
                 </div>
-                
-                <!-- Zweite Wohnung - Dummy -->
-                <div class="accommodation-card fade-in">
-                    <!-- Photo Carousel -->
-                    <div class="photo-carousel">
-                        <div class="carousel-container">
-                            <div class="carousel-slide active">
-                                <img src="assets/images/heringen-1.jpg" alt="Monteurswohnung Heringen - Wohnzimmer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="placeholder-image" style="display: none;">
-                                    📸 Wohnzimmer - Monteurswohnung Heringen
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="assets/images/heringen-2.jpg" alt="Monteurswohnung Heringen - Schlafzimmer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="placeholder-image" style="display: none;">
-                                    📸 Schlafzimmer - Monteurswohnung Heringen
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="assets/images/heringen-3.jpg" alt="Monteurswohnung Heringen - Küche" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="placeholder-image" style="display: none;">
-                                    📸 Küche - Monteurswohnung Heringen
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="assets/images/heringen-4.jpg" alt="Monteurswohnung Heringen - Bad" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="placeholder-image" style="display: none;">
-                                    📸 Bad - Monteurswohnung Heringen
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="assets/images/heringen-5.jpg" alt="Monteurswohnung Heringen - Außenansicht" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="placeholder-image" style="display: none;">
-                                    📸 Außenansicht - Monteurswohnung Heringen
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Carousel Navigation -->
-                        <button class="carousel-btn prev" onclick="changeSlide2(-1)">❮</button>
-                        <button class="carousel-btn next" onclick="changeSlide2(1)">❯</button>
-                        
-                        <!-- Carousel Indicators -->
-                        <div class="carousel-indicators">
-                            <span class="indicator active" onclick="currentSlide2(1)"></span>
-                            <span class="indicator" onclick="currentSlide2(2)"></span>
-                            <span class="indicator" onclick="currentSlide2(3)"></span>
-                            <span class="indicator" onclick="currentSlide2(4)"></span>
-                            <span class="indicator" onclick="currentSlide2(5)"></span>
-                        </div>
-                    </div>
-                    
-                    <div class="accommodation-content">
-                         <div class="accommodation-header">
-                             <h3 class="accommodation-title">Zweite Monteurswohnung</h3>
-                             <div class="accommodation-price">ab 25€ / Nacht / Person</div>
-                         </div>
-                         <p>Großzügige Monteurunterkunft mit 5-10 Zimmern im Zentrum von Heringen (Werra). Ideal für größere Gruppen von Monteuren oder Handwerkern. Alle Zimmer sind mit Küche und Bad ausgestattet.</p>
-                         
-                         <div class="accommodation-features-grid">
-                             <div class="feature-box">5-10 Zimmer verfügbar</div>
-                             <div class="feature-box">Einzel- & 3-Bett Zimmer</div>
-                             <div class="feature-box">Vollküche mit Geschirrspüler</div>
-                             <div class="feature-box">Eigenes Bad pro Zimmer</div>
-                             <div class="feature-box">Smart-TV in jedem Zimmer</div>
-                             <div class="feature-box">Eigener Parkplatz pro Wohneinheit</div>
-                             <div class="feature-box">Kostenloses WLAN</div>
-                             <div class="feature-box">Waschmaschine verfügbar</div>
-                         </div>
-                         
-                         <!-- Action buttons for apartment -->
-                        <div class="apartment-actions">
-                            <!-- Button for inquiry form -->
-                            <button class="action-btn inquiry-btn-toggle" onclick="toggleApartmentInquiry2()">
-                                📅 Unkomplizierte Anfrage
-                                <span class="toggle-icon" id="inquiry-toggle2">▼</span>
-                        </button>
-                            
-                            <!-- Button for maps -->
-                            <button class="action-btn maps-btn-toggle" onclick="toggleApartmentMaps2()">
-                                🗺️ Auf Karte zeigen
-                                <span class="toggle-icon" id="maps-toggle2">▼</span>
-                            </button>
-                        </div>
-
-                        <!-- Inquiry form (initially hidden) -->
-                        <div class="apartment-section" id="apartment-inquiry-section2" style="display: none;">
-                            <form class="simple-apartment-form" onsubmit="submitApartmentInquiry2(event)">
-                                <div class="inquiry-row">
-                                    <div class="inquiry-group">
-                                        <label for="apartment-checkin2">Anreise</label>
-                                        <input type="date" id="apartment-checkin2" name="checkin" required>
-                                    </div>
-                                    <div class="inquiry-group">
-                                        <label for="apartment-checkout2">Abreise</label>
-                                        <input type="date" id="apartment-checkout2" name="checkout" required>
-                                    </div>
-                                    <div class="inquiry-group">
-                                        <label for="apartment-guests2">Gäste</label>
-                                        <select id="apartment-guests2" name="guests" required>
-                                            <option value="">Anzahl</option>
-                                            <option value="1">1 Person</option>
-                                            <option value="2">2 Personen</option>
-                                            <option value="3">3 Personen</option>
-                                            <option value="4">4 Personen</option>
-                                            <option value="5">5 Personen</option>
-                                            <option value="6">6 Personen</option>
-                                            <option value="7">7 Personen</option>
-                                            <option value="8">8 Personen</option>
-                                            <option value="9">9 Personen</option>
-                                            <option value="10">10 Personen</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="inquiry-group">
-                                    <label for="apartment-comment2">Zusätzliche Anmerkungen</label>
-                                    <textarea id="apartment-comment2" name="comment" placeholder="Besondere Wünsche, Fragen oder Anmerkungen..."></textarea>
-                                </div>
-                                <div class="inquiry-buttons">
-                                    <button type="submit" class="inquiry-btn email-btn">📧 Per E-Mail anfragen</button>
-                                    <button type="button" class="inquiry-btn whatsapp-btn" onclick="sendApartmentWhatsApp2()">💬 WhatsApp Anfrage</button>
-                                </div>
-                            </form>
-                        </div>
-                        
-                        <!-- Google Maps section (initially hidden) -->
-                        <div class="apartment-section" id="apartment-maps-section2" style="display: none;">
-                            <div class="location-map">
-                                <iframe 
-                                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d314.62594996371746!2d10.0109109!3d50.8865697!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a359003f30e887%3A0xef18933c7f7df17e!2sMonteurzimmer%20Monteurwohnung%20Cosima%20J%C3%A4hn%20-%20Heringen%20Philippsthal%20Berka%20Wildeck%20Friedewald!5e0!3m2!1sde!2sde!4v1755720277324!5m2!1sde!2sde&z=12"
-                                    width="100%" 
-                                    height="300" 
-                                    style="border:0;" 
-                                    allowfullscreen="" 
-                                    loading="lazy" 
-                                    referrerpolicy="no-referrer-when-downgrade">
-                                </iframe>
-                                <div class="map-info">
-                                    <p><strong>📍 Adresse:</strong> August-Vilmar-Straße 20, 36266 Heringen (Werra)</p>
-                                    <a href="https://maps.app.goo.gl/dUnEMCLdLApUH8k76" target="_blank" class="map-link">
-                                        🗺️ In Google Maps öffnen
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
+
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -2954,7 +2869,7 @@
                 </div>
                 
                 <div class="contact-details">
-                    <a href="tel:+4917630167602" class="contact-button phone-btn">
+                    <a href="tel:+491634848652" class="contact-button phone-btn">
                         <span class="contact-icon">📞</span>
                         <span class="contact-text">Jetzt anrufen</span>
                     </a>
@@ -3494,7 +3409,7 @@ Diese Anfrage wurde über die Website gesendet.
   🌙 Anzahl Nächte: ${nights}
   👥 Gäste: ${guests} Person${guests > 1 ? 'en' : ''}`;
              
-             const whatsappLink = `https://wa.me/4917630167602?text=${encodeURIComponent(message)}`;
+             const whatsappLink = `https://wa.me/491634848652?text=${encodeURIComponent(message)}`;
              window.open(whatsappLink, '_blank');
          }
 
@@ -3516,7 +3431,7 @@ Diese Anfrage wurde über die Website gesendet.
             
             const message = `Hallo! Ich sende eine SPEZIFISCHE ANFRAGE für die Monteurzimmer in Heringen:
 
-🏠 UNTERKUNFT: 5-10 Zimmer Monteurzimmer Heringen
+🏠 UNTERKUNFT: 20 Zimmer Monteurzimmer Heringen
 📍 Adresse: August-Vilmar-Straße 20, 36266 Heringen (Werra)
 💰 Preis: ab 25€/Nacht/Person
 
@@ -3529,7 +3444,7 @@ Diese Anfrage wurde über die Website gesendet.
 
 🎯 Ich interessiere mich für diese konkrete Unterkunft.`;
             
-            const whatsappLink = `https://wa.me/4917630167602?text=${encodeURIComponent(message)}`;
+            const whatsappLink = `https://wa.me/491634848652?text=${encodeURIComponent(message)}`;
             window.open(whatsappLink, '_blank');
         }
 
@@ -3573,12 +3488,12 @@ Diese Anfrage wurde über die Website gesendet.
             const nights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
             
                                       // Format email content for specific apartment
-              const subject = `SPEZIFISCHE ANFRAGE - 5-10 Zimmer Monteurzimmer Heringen`;
+              const subject = `SPEZIFISCHE ANFRAGE - Monteur und Ferien Wohnung in Heringen`;
               const body = `
   SPEZIFISCHE ANFRAGE FÜR DIESE UNTERKUNFT
   
   UNTERKUNFT:
-  5-10 Zimmer Monteurzimmer Heringen
+  Monteur und Ferien Wohnung in Heringen
   August-Vilmar-Straße 20, 36266 Heringen (Werra)
   Preis: ab 25€ pro Person/Nacht
   
@@ -3623,9 +3538,9 @@ Diese Anfrage wurde über die Website gesendet.
               const checkoutDate = new Date(checkout);
               const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
               
-              let message = `Hallo! Ich sende eine SPEZIFISCHE ANFRAGE für die Monteurzimmer in Heringen:
-  
-   🏠 UNTERKUNFT: 5-10 Zimmer Monteurzimmer Heringen
+                            let message = `Hallo! Ich sende eine SPEZIFISCHE ANFRAGE für die Monteurzimmer in Heringen:
+
+   🏠 UNTERKUNFT: Monteur und Ferien Wohnung in Heringen
    📍 Adresse: August-Vilmar-Straße 20, 36266 Heringen (Werra)
    💰 Preis: ab 25€/Nacht/Person
    
@@ -3640,7 +3555,7 @@ Diese Anfrage wurde über die Website gesendet.
               
               message += `\n\n💡 WICHTIG: Diese Anfrage bezieht sich spezifisch auf die Monteurzimmer in Heringen!\n\n🎯 Ich interessiere mich für diese konkrete Unterkunft.`;
              
-             const whatsappLink = `https://wa.me/4917630167602?text=${encodeURIComponent(message)}`;
+             const whatsappLink = `https://wa.me/491634848652?text=${encodeURIComponent(message)}`;
              window.open(whatsappLink, '_blank');
          }
 
@@ -3775,153 +3690,20 @@ Diese Anfrage wurde über die Website gesendet.
             }
         }
 
-        // Functions for second apartment
-        function toggleApartmentInquiry2() {
-            const inquirySection = document.getElementById('apartment-inquiry-section2');
-            const mapsSection = document.getElementById('apartment-maps-section2');
-            const inquiryToggle = document.getElementById('inquiry-toggle2');
-            const mapsToggle = document.getElementById('maps-toggle2');
+        // Function to toggle text expansion
+        function toggleText() {
+            const textContent = document.getElementById('collapsible-text');
+            const toggleBtn = document.getElementById('toggle-text-btn');
             
-            if (inquirySection.style.display === 'none') {
-                inquirySection.style.display = 'block';
-                mapsSection.style.display = 'none';
-                inquiryToggle.textContent = '▲';
-                mapsToggle.textContent = '▼';
+            if (textContent.classList.contains('collapsed')) {
+                textContent.classList.remove('collapsed');
+                textContent.classList.add('expanded');
+                toggleBtn.textContent = '📖 Weniger anzeigen';
             } else {
-                inquirySection.style.display = 'none';
-                inquiryToggle.textContent = '▼';
+                textContent.classList.remove('expanded');
+                textContent.classList.add('collapsed');
+                toggleBtn.textContent = '📖 Mehr anzeigen';
             }
-        }
-
-        function toggleApartmentMaps2() {
-            const inquirySection = document.getElementById('apartment-inquiry-section2');
-            const mapsSection = document.getElementById('apartment-maps-section2');
-            const inquiryToggle = document.getElementById('inquiry-toggle2');
-            const mapsToggle = document.getElementById('maps-toggle2');
-            
-            if (mapsSection.style.display === 'none') {
-                mapsSection.style.display = 'block';
-                inquirySection.style.display = 'none';
-                mapsToggle.textContent = '▲';
-                inquiryToggle.textContent = '▼';
-            } else {
-                mapsSection.style.display = 'none';
-                mapsToggle.textContent = '▼';
-            }
-        }
-
-        function submitApartmentInquiry2(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Calculate number of nights
-            const checkin = new Date(data.checkin);
-            const checkout = new Date(data.checkout);
-            const nights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
-            
-                         // Format email content for second apartment
-             const subject = `SPEZIFISCHE ANFRAGE - Zweite Monteurswohnung Heringen`;
-             const body = `
-SPEZIFISCHE ANFRAGE FÜR DIESE UNTERKUNFT
-
-UNTERKUNFT:
-Zweite Monteurswohnung Heringen
-August-Vilmar-Straße 20, 36266 Heringen (Werra)
-Preis: ab 25€ pro Person/Nacht
-
-HINWEIS: Diese Anfrage bezieht sich spezifisch auf die zweite Monteurswohnung in Heringen.
-
-ANFRAGEDETAILS:
-Anreise: ${formatDate(data.checkin)}
-Abreise: ${formatDate(data.checkout)}
-Anzahl Nächte: ${nights}
-Gäste: ${data.guests} Person${data.guests > 1 ? 'en' : ''}
-
-ZUSÄTZLICHE ANMERKUNGEN:
-${data.comment || 'Keine besonderen Wünsche'}
-
----
-Diese Anfrage wurde über die Website gesendet.
-             `.trim();
-            
-            // Create mailto link
-            const mailtoLink = `mailto:cosimajaehn@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show confirmation
-            alert('Ihre Anfrage für die zweite Monteurswohnung wird in Ihrem E-Mail-Programm geöffnet. Bitte senden Sie die E-Mail ab, um die Anfrage zu übermitteln.');
-        }
-
-        function sendApartmentWhatsApp2() {
-            const checkin = document.getElementById('apartment-checkin2').value;
-            const checkout = document.getElementById('apartment-checkout2').value;
-            const guests = document.getElementById('apartment-guests2').value;
-            const comment = document.getElementById('apartment-comment2').value;
-            
-            if (!checkin || !checkout || !guests) {
-                alert('Bitte füllen Sie alle Felder aus.');
-                return;
-            }
-            
-            // Calculate number of nights
-            const checkinDate = new Date(checkin);
-            const checkoutDate = new Date(checkout);
-            const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
-            
-                         let message = `Hallo! Ich sende eine SPEZIFISCHE ANFRAGE für die zweite Monteurswohnung:
-
-🏠 UNTERKUNFT: Zweite Monteurswohnung Heringen
-📍 Adresse: August-Vilmar-Straße 20, 36266 Heringen (Werra)
-💰 Preis: ab 25€/Nacht/Person
-
-📅 Anreise: ${formatDate(checkin)}
-📅 Abreise: ${formatDate(checkout)}
-🌙 Anzahl Nächte: ${nights}
-👥 Gäste: ${guests} Person${guests > 1 ? 'en' : ''}`;
-            
-            if (comment) {
-                message += `\n\n💬 Zusätzliche Anmerkungen:\n${comment}`;
-            }
-            
-                         message += `\n\n💡 WICHTIG: Diese Anfrage bezieht sich spezifisch auf die zweite Monteurswohnung in Heringen!\n\n🎯 Ich interessiere mich für diese konkrete Unterkunft.`;
-            
-            const whatsappLink = `https://wa.me/4917630167602?text=${encodeURIComponent(message)}`;
-            window.open(whatsappLink, '_blank');
-        }
-
-        // Carousel functions for second apartment
-        let currentSlideIndex2 = 0;
-
-        function changeSlide2(direction) {
-            const secondApartment = document.querySelector('#apartment-maps-section2').closest('.accommodation-card');
-            const slides = secondApartment.querySelectorAll('.carousel-slide');
-            const indicators = secondApartment.querySelectorAll('.indicator');
-            
-            slides[currentSlideIndex2].classList.remove('active');
-            indicators[currentSlideIndex2].classList.remove('active');
-            
-            currentSlideIndex2 = (currentSlideIndex2 + direction + slides.length) % slides.length;
-            
-            slides[currentSlideIndex2].classList.add('active');
-            indicators[currentSlideIndex2].classList.add('active');
-        }
-
-        function currentSlide2(slideNumber) {
-            const secondApartment = document.querySelector('#apartment-maps-section2').closest('.accommodation-card');
-            const slides = secondApartment.querySelectorAll('.carousel-slide');
-            const indicators = secondApartment.querySelectorAll('.indicator');
-            
-            slides[currentSlideIndex2].classList.remove('active');
-            indicators[currentSlideIndex2].classList.remove('active');
-            
-            currentSlideIndex2 = slideNumber - 1;
-            
-            slides[currentSlideIndex2].classList.add('active');
-            indicators[currentSlideIndex2].classList.add('active');
         }
     </script>
 </body>
