@@ -3,8 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Monteurzimmer Werra-Meißner - Komfortable Unterkünfte für Handwerker</title>
-    <meta name="description" content="Vollausgestattete Monteurzimmer in der Werra-Meißner Region. Günstig, sauber, zentral gelegen.">
+    <title>Monteurzimmer Heringen (Werra) ab 25€ | Vollausgestattet & zentral</title>
+    <meta name="description" content="Vollausgestattete Monteurzimmer in Heringen (Werra) ab 25€/Nacht. Einzelbetten, Küche, WLAN, Parkplatz für Transporter. Ideal für Monteure & Handwerker.">
+    <meta name="keywords" content="Monteurzimmer Heringen, Monteurwohnung Werra, Handwerkerunterkünfte Heringen, günstige Monteurszimmer">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ihre-domain.de/">
+    <meta property="og:title" content="Monteurzimmer Heringen ab 25€ - Vollausgestattet">
+    <meta property="og:description" content="Moderne Monteurwohnung in Heringen (Werra) mit Küche, WLAN und Parkplatz">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ihre-domain.de/">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Accommodation",
+      "name": "Monteurzimmer Heringen",
+      "description": "Vollausgestattete 2-Zimmer-Wohnung für Monteure",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "August-Vilmar-Straße 20",
+        "addressLocality": "Heringen (Werra)",
+        "postalCode": "36266",
+        "addressCountry": "DE"
+      },
+      "priceRange": "€25-50"
+    }
+    </script>
     
     <style>
         /* Reset and base styles - Mobile-first approach */
@@ -528,20 +552,23 @@
                 width: auto;
                 max-width: none;
                 padding: 0.6rem 0.8rem;
-                gap: 0.6rem;
+                gap: 0.3rem;
                 min-width: 160px;
                 height: 3.2rem;
                 flex: 1;
+                justify-content: flex-start;
             }
             
             .contact-details .contact-icon {
                 font-size: 1.2rem;
-                margin-right: 0.3rem;
+                margin-right: 0;
+                flex-shrink: 0;
             }
             
             .contact-details .contact-text {
                 font-size: 1rem;
                 white-space: nowrap;
+                margin-left: 0;
             }
             
             .contact-host-info {
@@ -614,7 +641,8 @@
 
         @media (max-width: 767px) {
             .accommodation-card {
-                margin: 2rem 0;
+                margin: 2rem 8px;
+                width: calc(100% - 16px);
             }
         }
 
@@ -1733,6 +1761,10 @@
             .accommodations {
                 padding: 5rem 0 3rem;
             }
+            
+            .accommodation-grid {
+                padding: 0 8px;
+            }
         }
 
         @media (min-width: 768px) {
@@ -1764,6 +1796,18 @@
             overflow: visible;
             border-radius: 20px 20px 0 0;
             width: 100%;
+        }
+
+        @media (max-width: 767px) {
+            .photo-carousel {
+                margin: 0 8px;
+                width: calc(100% - 16px);
+                border-radius: 16px 16px 0 0;
+            }
+            
+            .carousel-slide img {
+                border-radius: 16px 16px 0 0;
+            }
         }
 
         @media (min-width: 768px) {
@@ -3377,23 +3421,23 @@ Diese Anfrage wurde über die Website gesendet.
             const checkout = new Date(data.checkout);
             const nights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
             
-                         // Format email content
-             const subject = `Anfrage - Monteurzimmer`;
-             const body = `
- ANFRAGE - MONTEURZIMMER
- 
- UNTERKUNFT:
- Monteurzimmer (Standort wird basierend auf Verfügbarkeit und Ihren Wünschen vorgeschlagen)
- 
- ANFRAGEDETAILS:
- Anreise: ${formatDate(data.checkin)}
- Abreise: ${formatDate(data.checkout)}
- Anzahl Nächte: ${nights}
- Gäste: ${data.guests} Person${data.guests > 1 ? 'en' : ''}
- 
- ---
- Diese Anfrage wurde über die Website gesendet.
-             `.trim();
+            // Format email content
+            const subject = `Anfrage - Monteurzimmer`;
+            const body = `
+ANFRAGE - MONTEURZIMMER
+
+UNTERKUNFT:
+Monteurzimmer (Standort wird basierend auf Verfügbarkeit und Ihren Wünschen vorgeschlagen)
+
+ANFRAGEDETAILS:
+Anreise: ${formatDate(data.checkin)}
+Abreise: ${formatDate(data.checkout)}
+Anzahl Nächte: ${nights}
+Gäste: ${data.guests} Person${data.guests > 1 ? 'en' : ''}
+
+---
+Diese Anfrage wurde über die Website gesendet.
+            `.trim();
             
             // Create mailto link
             const mailtoLink = `mailto:cosimajaehn@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -3405,27 +3449,27 @@ Diese Anfrage wurde über die Website gesendet.
             alert('Ihre allgemeine Anfrage wird in Ihrem E-Mail-Programm geöffnet. Bitte senden Sie die E-Mail ab, um die Anfrage zu übermitteln.');
         }
 
-                          function sendWhatsAppInquiry() {
-             const checkin = document.getElementById('inquiry-checkin').value;
-             const checkout = document.getElementById('inquiry-checkout').value;
-             const guests = document.getElementById('inquiry-guests').value;
-             
-             if (!checkin || !checkout || !guests) {
-                 alert('Bitte füllen Sie alle Felder aus.');
-                 return;
-             }
-             
-             // Calculate number of nights
-             const checkinDate = new Date(checkin);
-             const checkoutDate = new Date(checkout);
-             const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
-             
-             const message = `Hallo! Ich sende eine Anfrage für Monteurzimmer:
+        function sendWhatsAppInquiry() {
+            const checkin = document.getElementById('inquiry-checkin').value;
+            const checkout = document.getElementById('inquiry-checkout').value;
+            const guests = document.getElementById('inquiry-guests').value;
+            
+            if (!checkin || !checkout || !guests) {
+                alert('Bitte füllen Sie alle Felder aus.');
+                return;
+            }
+            
+            // Calculate number of nights
+            const checkinDate = new Date(checkin);
+            const checkoutDate = new Date(checkout);
+            const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
+            
+            const message = `Hallo! Ich sende eine Anfrage für Monteurzimmer:
 
-  📅 Anreise: ${formatDate(checkin)}
-  📅 Abreise: ${formatDate(checkout)}
-  🌙 Anzahl Nächte: ${nights}
-  👥 Gäste: ${guests} Person${guests > 1 ? 'en' : ''}`;
+📅 Anreise: ${formatDate(checkin)}
+📅 Abreise: ${formatDate(checkout)}
+🌙 Anzahl Nächte: ${nights}
+👥 Gäste: ${guests} Person${guests > 1 ? 'en' : ''}`;
              
              const whatsappLink = `https://wa.me/491634848652?text=${encodeURIComponent(message)}`;
              window.open(whatsappLink, '_blank');
@@ -3505,28 +3549,28 @@ Diese Anfrage wurde über die Website gesendet.
             const checkout = new Date(data.checkout);
             const nights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
             
-                                      // Format email content for specific apartment
-              const subject = `ANFRAGE - Monteur- und Ferienwohnungen in Heringen`;
-              const body = `
-  ANFRAGE FÜR ZIMMER IN HERINGEN
-  
-  UNTERKUNFT:
-  Monteur- und Ferienwohnungen in Heringen
-  August-Vilmar-Straße 20, 36266 Heringen (Werra)
-  Preis: ab 25€ pro Person/Nacht
-  
-  ANFRAGEDETAILS:
-  Anreise: ${formatDate(data.checkin)}
-  Abreise: ${formatDate(data.checkout)}
-  Anzahl Nächte: ${nights}
-  Gäste: ${data.guests} Person${data.guests > 1 ? 'en' : ''}
-  
-  ZUSÄTZLICHE ANMERKUNGEN:
-  ${data.comment || 'Keine besonderen Wünsche'}
-  
-  ---
-  Diese Anfrage wurde über die Website gesendet.
-              `.trim();
+            // Format email content for specific apartment
+            const subject = `ANFRAGE - Monteur- und Ferienwohnungen in Heringen`;
+            const body = `
+ANFRAGE FÜR ZIMMER IN HERINGEN
+
+UNTERKUNFT:
+Monteur- und Ferienwohnungen in Heringen
+August-Vilmar-Straße 20, 36266 Heringen (Werra)
+Preis: ab 25€ pro Person/Nacht
+
+ANFRAGEDETAILS:
+Anreise: ${formatDate(data.checkin)}
+Abreise: ${formatDate(data.checkout)}
+Anzahl Nächte: ${nights}
+Gäste: ${data.guests} Person${data.guests > 1 ? 'en' : ''}
+
+ZUSÄTZLICHE ANMERKUNGEN:
+${data.comment || 'Keine besonderen Wünsche'}
+
+---
+Diese Anfrage wurde über die Website gesendet.
+            `.trim();
             
             // Create mailto link
             const mailtoLink = `mailto:cosimajaehn@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -3538,32 +3582,32 @@ Diese Anfrage wurde über die Website gesendet.
             alert('Ihre Anfrage für die Monteurzimmer in Heringen wird in Ihrem E-Mail-Programm geöffnet. Bitte senden Sie die E-Mail ab, um die Anfrage zu übermitteln.');
         }
 
-                                   function sendApartmentWhatsApp() {
-              const checkin = document.getElementById('apartment-checkin').value;
-              const checkout = document.getElementById('apartment-checkout').value;
-              const guests = document.getElementById('apartment-guests').value;
-              const comment = document.getElementById('apartment-comment').value;
-              
-              if (!checkin || !checkout || !guests) {
-                  alert('Bitte füllen Sie alle Felder aus.');
-                  return;
-              }
-              
-              // Calculate number of nights
-              const checkinDate = new Date(checkin);
-              const checkoutDate = new Date(checkout);
-              const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
-              
-                            let message = `Hallo! Ich interessiere mich für ein/mehrere Zimmer eurer Wohnung in Heringen:
+        function sendApartmentWhatsApp() {
+            const checkin = document.getElementById('apartment-checkin').value;
+            const checkout = document.getElementById('apartment-checkout').value;
+            const guests = document.getElementById('apartment-guests').value;
+            const comment = document.getElementById('apartment-comment').value;
+            
+            if (!checkin || !checkout || !guests) {
+                alert('Bitte füllen Sie alle Felder aus.');
+                return;
+            }
+            
+            // Calculate number of nights
+            const checkinDate = new Date(checkin);
+            const checkoutDate = new Date(checkout);
+            const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
+            
+            let message = `Hallo! Ich interessiere mich für ein/mehrere Zimmer eurer Wohnung in Heringen:
 
-   🏠 UNTERKUNFT: Monteur- und Ferienwohnungen in Heringen
-   📍 Adresse: August-Vilmar-Straße 20, 36266 Heringen (Werra)
-   💰 Preis: ab 25€/Nacht/Person
-   
-   📅 Anreise: ${formatDate(checkin)}
-   📅 Abreise: ${formatDate(checkout)}
-   🌙 Anzahl Nächte: ${nights}
-   👥 Gäste: ${guests} Person${guests > 1 ? 'en' : ''}`;
+🏠 UNTERKUNFT: Monteur- und Ferienwohnungen in Heringen
+📍 Adresse: August-Vilmar-Straße 20, 36266 Heringen (Werra)
+💰 Preis: ab 25€/Nacht/Person
+
+📅 Anreise: ${formatDate(checkin)}
+📅 Abreise: ${formatDate(checkout)}
+🌙 Anzahl Nächte: ${nights}
+👥 Gäste: ${guests} Person${guests > 1 ? 'en' : ''}`;
               
               if (comment) {
                   message += `\n\n💬 Zusätzliche Anmerkungen:\n${comment}`;
