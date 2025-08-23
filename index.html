@@ -496,7 +496,7 @@
             transition: all 0.3s ease;
             min-width: 200px;
             text-decoration: none;
-            justify-content: center;
+            justify-content: flex-start;
             height: 5rem;
             box-sizing: border-box;
         }
@@ -642,6 +642,7 @@
             transform: translateZ(0);
             /* Add extra padding to prevent shadow clipping */
             padding-bottom: 2rem;
+
         }
 
         @media (max-width: 767px) {
@@ -649,6 +650,8 @@
                 margin: 2rem 8px;
                 width: calc(100% - 16px);
             }
+            
+
         }
 
         .accommodation-card:hover {
@@ -657,21 +660,40 @@
             border-color: #f0f0f0;
         }
 
+
+
         /* Photo Carousel Styles */
         .photo-carousel {
             position: relative;
-            height: 400px;
+            height: 480px;
             overflow: visible;
             border-radius: 20px 20px 0 0;
             margin: 0;
-            /* Ensure shadow is fully visible */
-            padding-bottom: 1rem;
+            padding: 0;
+            width: 100%;
+            /* Extend carousel to edges of apartment box - very conservative */
+            position: relative;
+            left: -0.25rem;
+            right: -0.25rem;
+            width: calc(100% + 0.5rem);
+            /* Ensure no borders or outlines that could cause dark lines */
+            border: none;
+            outline: none;
+            -webkit-border-radius: 20px 20px 0 0;
+            -moz-border-radius: 20px 20px 0 0;
         }
 
         .carousel-container {
             position: relative;
             height: 100%;
             width: 100%;
+            margin: 0;
+            padding: 0;
+            /* Ensure container fills the extended carousel area */
+            overflow: hidden;
+            /* Ensure no borders that could cause dark lines */
+            border: none;
+            outline: none;
         }
 
         .carousel-slide {
@@ -685,6 +707,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0;
+            padding: 0;
+            /* Ensure slides fill the extended carousel area */
+            min-width: 100%;
+            min-height: 100%;
         }
 
         .carousel-slide.active {
@@ -698,6 +725,18 @@
             border-radius: 20px 20px 0 0;
             margin: 0;
             padding: 0;
+            display: block;
+            /* Ensure images fill the extended carousel area */
+            min-width: 100%;
+            min-height: 100%;
+            /* Ensure smooth border radius rendering */
+            -webkit-border-radius: 20px 20px 0 0;
+            -moz-border-radius: 20px 20px 0 0;
+            /* Remove any potential borders that might cause dark lines */
+            border: none;
+            outline: none;
+            /* Ensure proper rendering and no dark lines */
+            background: transparent;
         }
 
         .placeholder-image {
@@ -888,7 +927,23 @@
             font-weight: bold;
             color: #ff6b9d;
             text-align: right;
+            line-height: 1.2;
             white-space: nowrap;
+        }
+        
+        .price-note {
+            font-size: 0.8rem;
+            color: #666;
+            font-weight: normal;
+            margin-top: 0.3rem;
+            text-align: right;
+        }
+        
+        .price-note-hero {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+            opacity: 0.8;
         }
 
         /* New feature boxes grid */
@@ -1768,10 +1823,11 @@
                 margin: 0;
             }
             
-            /* Ensure carousel width matches USP boxes width */
+            /* Ensure carousel extends to edges of apartment box */
             .accommodation-card .photo-carousel {
-                width: calc(100% - 16px);
-                margin: 0 8px;
+                width: calc(100% + 0.125rem);
+                left: 0rem;
+                right: -0.125rem;
             }
         }
 
@@ -1805,33 +1861,48 @@
             box-sizing: border-box;
             /* Ensure shadow is fully visible */
             margin: 1rem 0;
-            padding: 0.5rem;
+            padding: 0;
         }
 
         /* Mobile-optimized photo carousel */
         .photo-carousel {
             position: relative;
-            height: 200px;
+            height: 300px;
             overflow: visible;
             border-radius: 20px 20px 0 0;
             width: 100%;
+            /* Extend carousel to edges of apartment box on mobile - very conservative */
+            position: relative;
+            left: 0rem;
+            right: -0.125rem;
+            width: calc(100% + 0.125rem);
         }
 
         @media (max-width: 767px) {
             .photo-carousel {
-                margin: 0 8px;
-                width: calc(100% - 16px);
-                border-radius: 16px 16px 0 0;
+                left: 0rem;
+                right: -0.125rem;
+                width: calc(100% + 0.125rem);
+                border-radius: 20px 20px 0 0;
             }
             
             .carousel-slide img {
                 border-radius: 16px 16px 0 0;
+                /* Ensure images fill the extended mobile carousel area */
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                /* Ensure smooth border radius rendering and no dark lines */
+                -webkit-border-radius: 16px 16px 0 0;
+                -moz-border-radius: 16px 16px 0 0;
+                border: none;
+                outline: none;
             }
         }
 
         @media (min-width: 768px) {
             .photo-carousel {
-                height: 400px;
+                height: 480px;
             }
         }
 
@@ -1863,6 +1934,15 @@
 
             .accommodation-price {
                 font-size: 1.5rem;
+                text-align: left;
+                line-height: 1.1;
+                white-space: normal;
+                word-wrap: break-word;
+            }
+            
+            .price-note {
+                font-size: 0.7rem;
+                margin-top: 0.2rem;
                 text-align: left;
             }
 
@@ -2061,7 +2141,7 @@
             
             .accommodation-card {
                 margin: 2rem 0;
-                padding-bottom: 1.5rem;
+                padding-bottom: 0;
             }
             
             .contact-item {
@@ -2655,8 +2735,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>🏠 Monteur- und Ferienzimmer in Heringen</h1>
-            <p><span class="hero-highlight">Top Service</span> <span class="hero-highlight">Ab 25€ + 7% MwSt./Nacht</span> <span class="hero-highlight">Kostenloses WLAN</span> <span class="hero-highlight">Vollküche</span> <span class="hero-highlight">flexible Miete</span></p>
+            <h1>🏠 Monteur- und Ferienzimmer in Heringen (Werra)</h1>
+            <p><span class="hero-highlight">Top Service</span> <span class="hero-highlight">Ab 25€*/Nacht</span> <span class="hero-highlight">Kostenloses WLAN</span> <span class="hero-highlight">Vollküche</span> <span class="hero-highlight">flexible Miete</span> <span class="price-note-hero">* zzgl. 7% MwSt.</span></p>
             
             <!-- Embedded Availability Inquiry Form -->
             <div class="hero-inquiry-form">
@@ -2714,7 +2794,7 @@
     <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <h2 class="section-title">Warum unsere Zimmer?</h2>
+            <h2 class="section-title">Warum unsere Unterkunft?</h2>
             <div class="features-simple">
                 <div class="feature-item">
                     <span class="feature-icon">🛏️</span>
@@ -2791,7 +2871,7 @@
     <!-- Accommodations Section -->
     <section class="accommodations">
         <div class="container">
-                         <h2 class="section-title">Unsere Zimmer</h2>
+                         <h2 class="section-title">Unsere Wohnungen</h2>
             <div class="accommodation-grid">
                 <!-- Heringen Wohnung -->
                 <div class="accommodation-card fade-in">
@@ -2834,7 +2914,10 @@
                     <div class="accommodation-content">
                          <div class="accommodation-header">
                              <h3 class="accommodation-title">Monteur- und Ferienwohnungen in Heringen</h3>
-                             <div class="accommodation-price">ab 25€ + 7% MwSt. / Nacht / Person</div>
+                             <div class="accommodation-price">
+                                 ab 25€* / Nacht / Person
+                                 <div class="price-note">* zzgl. 7% MwSt.</div>
+                             </div>
                          </div>
                          <p>Komfortable Unterkunft in Heringen – ideal für Monteure & Radfahrer. Insgesamt stehen bis zu 20 Zimmer zur Verfügung – wahlweise als Einzelzimmer, Doppelzimmer oder Dreibettzimmer. Alle Zimmer sind vollständig ausgestattet und werden regelmäßig gereinigt. Frische Bettwäsche und Handtücher sind selbstverständlich inklusive.</p>
                          
@@ -3003,7 +3086,7 @@
                     <!-- Impressum Section -->
                     <div id="impressum-section" class="legal-section collapsed">
                         <h4>Impressum</h4>
-                        <p><strong>Monteurzimmer Werra-Meißner</strong><br>
+                        <p><strong>Monteurzimmer Monteurwohnung Cosima Jähn</strong><br>
                         Vertreten durch: Cosima Jähn<br>
                         August-Vilmar-Straße 20<br>
                         36266 Heringen<br>
@@ -3077,7 +3160,7 @@
                 </div>
             </div>
             
-            <p style="margin-top: 2rem; text-align: center; color: #ccc;">© 2025 Monteurzimmer Werra-Meißner. Alle Rechte vorbehalten.</p>
+                                    <p style="margin-top: 2rem; text-align: center; color: #ccc;">© 2025 Monteurzimmer Monteurwohnung Cosima Jähn. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
 
