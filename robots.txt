@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
-Sitemap: https://ihre-domain.de/sitemap.xml
+Sitemap: https://zimmer-heringen.de/sitemap.xml
+
+

@@ -36,11 +36,11 @@ This document outlines the SEO optimizations implemented on the existing Monteur
 <meta name="description" content="Vollausgestattete Monteurzimmer in Heringen (Werra) ab 25€/Nacht. Einzelbetten, Küche, WLAN, Parkplatz für Transporter. Ideal für Monteure & Handwerker.">
 <meta name="keywords" content="Monteurzimmer Heringen, Monteurwohnung Werra, Handwerkerunterkünfte Heringen, günstige Monteurszimmer">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://ihre-domain.de/">
+<link rel="canonical" href="https://zimmer-heringen.de/">
 <meta property="og:title" content="Monteurzimmer Heringen ab 25€ - Vollausgestattet">
 <meta property="og:description" content="Moderne Monteurwohnung in Heringen (Werra) mit Küche, WLAN und Parkplatz">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://ihre-domain.de/">
+<meta property="og:url" content="https://zimmer-heringen.de/">
 ```
 
 ### Schema.org Markup
@@ -93,3 +93,5 @@ Before going live, update these URLs in the files:
 - **Social Sharing**: Open Graph tags improve social media appearance
 - **Mobile SEO**: Existing mobile-first design already optimized
 - **User Experience**: No changes to existing functionality or design
+
+
