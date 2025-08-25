@@ -1,62 +1,56 @@
-# Monteurswohnungen Werra-Meißner Website
-# Apache-Konfiguration für Strato.de
+# ----------------------------------------
+# Strato / Apache .htaccess für Monteurzimmer One-Pager
+# ----------------------------------------
 
-# Enable URL rewriting
-RewriteEngine On
+# HTTPS-Weiterleitung (nur aktivieren, wenn SSL aktiviert ist)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # HTTP -> HTTPS erzwungen (nach SSL-Aktivierung auskommentieren entfernen)
+  # RewriteCond %{HTTPS} !=on
+  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
 
-# Force HTTPS (uncomment if SSL is enabled)
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# Remove .html extension from URLs
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
-
-# Security headers
+# Sicherheits-Header
 <IfModule mod_headers.c>
-    Header always set X-Content-Type-Options nosniff
-    Header always set X-Frame-Options DENY
-    Header always set X-XSS-Protection "1; mode=block"
-    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Nach Aktivierung von HTTPS gern auch HSTS:
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
 </IfModule>
 
-# Enable compression
+# Komprimierung für bessere Performance
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/plain
-    AddOutputFilterByType DEFLATE text/html
-    AddOutputFilterByType DEFLATE text/xml
-    AddOutputFilterByType DEFLATE text/css
-    AddOutputFilterByType DEFLATE application/xml
-    AddOutputFilterByType DEFLATE application/xhtml+xml
-    AddOutputFilterByType DEFLATE application/rss+xml
-    AddOutputFilterByType DEFLATE application/javascript
-    AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript image/svg+xml
 </IfModule>
 
-# Browser caching
+# Browser-Caching für statische Assets (NICHT für HTML)
 <IfModule mod_expires.c>
-    ExpiresActive on
-    ExpiresByType text/css "access plus 1 year"
-    ExpiresByType application/javascript "access plus 1 year"
-    ExpiresByType image/png "access plus 1 year"
-    ExpiresByType image/jpg "access plus 1 year"
-    ExpiresByType image/jpeg "access plus 1 year"
-    ExpiresByType image/gif "access plus 1 year"
-    ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
 </IfModule>
 
-# Prevent access to sensitive files
+# Zugriff auf sensible Dateien unterbinden (Apache 2.4 Syntax)
 <Files ".htaccess">
-    Order allow,deny
-    Deny from all
+  Require all denied
 </Files>
-
 <Files "README.md">
-    Order allow,deny
-    Deny from all
+  Require all denied
+</Files>
+<Files "FORM_AND_MOBILE_FIXES_README.md">
+  Require all denied
+</Files>
+<Files "SEO_OPTIMIZATION_README.md">
+  Require all denied
 </Files>
 
-# Custom error pages
-ErrorDocument 404 /index.html
-ErrorDocument 500 /index.html
+# Keine eigenen Fehlerseiten bei One-Pager (Anker-Links funktionieren besser)
+# ErrorDocument 404 /index.html
