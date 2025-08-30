@@ -1,6 +1,15 @@
-# Monteurswohnungen Werra-Meißner Website
+# 🌍 Multilingual Accommodation Website - Heringen (Werra)
 
-Eine professionelle Website für Monteurswohnungen in der Werra-Meißner Region.
+Eine professionelle, mehrsprachige Website für Monteur- und Ferienwohnungen in Heringen (Werra).
+
+## 🗣️ Verfügbare Sprachen / Available Languages
+
+- 🇩🇪 **Deutsch** (Hauptsprache)
+- 🇬🇧 **English** 
+- 🇧🇬 **Български** (Bulgarisch)
+- 🇷🇴 **Română** (Rumänisch)
+- 🇵🇱 **Polski** (Polnisch)
+- 🇨🇿 **Čeština** (Tschechisch)
 
 ## 🚀 Schnellstart - Website sofort live bringen
 
@@ -48,16 +57,25 @@ Eine professionelle Website für Monteurswohnungen in der Werra-Meißner Region.
 ## 📁 Projektstruktur
 
 ```
-monteurswohnungen-werra/
-├── index.html          # Hauptwebsite
-├── README.md           # Diese Anleitung
-├── .htaccess          # Apache-Konfiguration (für Strato.de)
-├── robots.txt          # SEO-Optimierung
-├── sitemap.xml         # Sitemap für Suchmaschinen
-└── assets/             # Zusätzliche Ressourcen (optional)
-    ├── images/         # Bilder
-    ├── css/            # Stylesheets
-    └── js/             # JavaScript
+heringen-accommodation/
+├── index.html              # 🇩🇪 Deutsche Hauptseite
+├── en/
+│   └── index.html          # 🇬🇧 English version
+├── bg/
+│   └── index.html          # 🇧🇬 Българска версия
+├── ro/
+│   └── index.html          # 🇷🇴 Versiunea română
+├── pl/
+│   └── index.html          # 🇵🇱 Wersja polska
+├── cz/
+│   └── index.html          # 🇨🇿 Česká verze
+├── assets/
+│   └── images/             # Bilder/Images
+├── README.md               # Diese Anleitung
+├── .htaccess              # Apache-Konfiguration
+├── robots.txt             # SEO-Optimierung
+├── sitemap.xml            # Sitemap für Suchmaschinen
+└── .gitignore             # Git ignore file
 ```
 
 ## 🌐 Domain-Konfiguration
